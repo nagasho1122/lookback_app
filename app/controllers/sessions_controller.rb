@@ -4,12 +4,14 @@ class SessionsController < ApplicationController
   def create
     if (user = User.find_or_create_from_auth_hash(auth_hash))
       log_in user
+      flash[:success] = "ログインに成功しました。"
     end
     redirect_to root_path
   end
    
   def destroy
     log_out
+    flash[:success] = "ログアウトしました。"
     redirect_to root_path
   end
 

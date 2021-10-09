@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+example_lookback_detail1:
+  subject: "数学"
+  number: 1
+  text: "非常に難しかった。できなくて悔しい。"
+  created_at: <%= 10.minutes.ago %>
+  lookback: one
+
+example_lookback_detail2:
+  subject: "英語"
+  number: 1
+  text: "簡単すぎわろた"
+  lookback: most_recent
+  created_at: <%= 15.minutes.ago %>
+
+most_recent_details:
+  subject: "英語"
+  number: 1
+  text: "簡単すぎわろた"
+  lookback: most_recent
+  created_at: <%= Time.zone.now %>

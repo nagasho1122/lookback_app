@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :lookbacks, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  validates :name, presence: true
+  validates :email, presence: true
   
   class << self
     def find_or_create_from_auth_hash(auth_hash)

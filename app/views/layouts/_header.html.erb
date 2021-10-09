@@ -1,0 +1,22 @@
+<a href = <%= root_path %> class="logo-box" data-turbolinks="false">
+    <img class="icon-image" id="logo" src="/assets/home_icon2.png">
+</a>
+<header class="navbar ">
+      <div class="container-fluid">
+        <button class="title-bars bars"><i class="fas fa-bars"></i></button>
+        <nav>
+          <ul class="nav navbar-nav navbar-right" >
+            <% if current_user %>
+              <li class="nav-item" id="bar-only"><%= link_to "ホーム", root_path , data: {"turbolinks" => false} %></li>
+              <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id) , data: {"turbolinks" => false} %></li>
+              <%= image_tag current_user.image %>
+              <%= current_user.name %>さん
+              <%= link_to "ログアウト", log_out_path %>
+            <% else  %>
+              ゲストさん
+              <%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post %>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>

@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  university: "東京大学"
+  faculty: "理工学部"
+  department: "機械工学科"
+  year: 2020
+  all_text: "非常によくできた。特に後半の問題は全問正解。"
+  created_at: <%= 10.minutes.ago %>
+  user: example1
+
+most_recent:
+  university: "東京大学"
+  faculty: "理工学部"
+  department: "機械工学科"
+  year: 2019
+  all_text: "非常によくできた。特に後半の問題は全問正解。"
+  created_at: <%= Time.zone.now %>
+  user: example2
