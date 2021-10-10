@@ -20,12 +20,21 @@ class UserTest < ActiveSupport::TestCase
   end
   
   
-  test "associated microposts should be destroy" do
+  test "associated lookbacks should be destroy" do
     @user.save
     @user.lookbacks.create!(university: "東京大学", faculty: "理工学部",
                     department: "機械工学科", year: 2020,  
                     all_text: "非常によくできた。特に後半の問題は全問正解。")
     assert_difference "Lookback.count", -1 do
+      @user.destroy
+    end
+  end
+  
+  test "associated reviews should be destroy" do
+    @user.save
+    @user.reviews.create!(content: "単語帳 2周",  lookback_detail_id: lookback_details(:example_lookback_detail1).id,
+                    deadline_at: Time.zone.now)
+    assert_difference "Review.count", -1 do
       @user.destroy
     end
   end

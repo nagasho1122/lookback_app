@@ -9,6 +9,7 @@
             <% if current_user %>
               <li class="nav-item" id="bar-only"><%= link_to "ホーム", root_path , data: {"turbolinks" => false} %></li>
               <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id) , data: {"turbolinks" => false} %></li>
+              <li class="nav-item"><%= link_to "振り返り", new_lookback_path , data: {"turbolinks" => false} %></li>
               <%= image_tag current_user.image %>
               <%= current_user.name %>さん
               <%= link_to "ログアウト", log_out_path %>

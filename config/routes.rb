@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :sessions, only: %i[create destroy]
-  resources :lookbacks, only: [:create, :destroy, :show, :edit, :update]
+  resources :lookbacks, only: [:create, :destroy, :show, :edit, :update, :new]
+  resources :lookback_details, only: [:create, :destroy, :update]
+  resources :reviews, only: [:create, :destroy, :update]
 end

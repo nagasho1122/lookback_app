@@ -3,6 +3,7 @@ require "test_helper"
 class LookbackDetailTest < ActiveSupport::TestCase
   def setup
     @lookback = lookbacks(:most_recent)
+    @user = users(:example1)
     @lookback_detail = @lookback.lookback_details.build(subject: "数学",  
                     number: 1, text:  "非常に難しかった。できなくて悔しい。")
   end
@@ -37,4 +38,14 @@ class LookbackDetailTest < ActiveSupport::TestCase
   test "order should be most recent first" do
    assert_equal lookback_details(:most_recent_details), LookbackDetail.first
   end
+  
+  test "associated reviews should be destroy" do
+    @lookback_detail.save
+    @lookback_detail.reviews.create!(content: "単語帳 2周",  user_id: @user.id,
+                    deadline_at: Time.zone.now)
+    assert_difference "Review.count", -1 do
+      @lookback_detail.destroy
+    end
+  end
+  
 end

@@ -1,5 +1,9 @@
 class LookbacksController < ApplicationController
   
+  def new
+    @lookback = Lookback.new
+  end
+  
   def create
   end
   
@@ -14,4 +18,5 @@ class LookbacksController < ApplicationController
   
   def update
   end
+  
 end
