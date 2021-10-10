@@ -1,0 +1,11 @@
+<div class="nested-fields">
+    <%= f.label :content, "内容（必須）" %>
+    <%= f.text_field :content, class: 'form-control' %>
+    
+    <%= f.label :deadline_at, "締め切り" %>
+    <%= f.date_field :deadline_at, class: 'form-control' %>
+    
+    <%= f.hidden_field :user_id, :value => current_user.id  %>
+    
+    <%= link_to_remove_association "削除", f %>
+  </div>

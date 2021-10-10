@@ -1,0 +1,31 @@
+<%= form_with model: @lookback, url: lookbacks_path, method: :post, local: true do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <%= f.label :year, "年度（必須）" %>
+  <%= f.text_field :year, class: 'form-control' %>
+  
+  <%= f.label :university, "大学名（必須）" %>
+  <%= f.text_field :university, class: 'form-control' %>
+  
+  <%= f.label :faculty, "学部（必須）" %>
+  <%= f.text_field :faculty, class: 'form-control' %>
+  
+  <%= f.label :department, "学科（必須）" %>
+  <%= f.text_field :department, class: 'form-control' %>
+  
+  <%= f.label :all_text, "全体振り返り（必須）" %>
+  <%= f.text_area :all_text, class: 'form-control' %>
+
+  
+  <%= f.fields_for :lookback_details do |t| %>
+    <%= render "lookbacks/lookback_detail_fields", f: t %>
+  <% end %>
+
+  
+  <%= link_to_add_association "追加", f, :lookback_details %>
+  
+  <div class="actions">
+    <%= f.submit "記録する"%>
+  </div>
+<% end %>

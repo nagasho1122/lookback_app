@@ -8,6 +8,7 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem 'cocoon'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 # Use SCSS for stylesheets
