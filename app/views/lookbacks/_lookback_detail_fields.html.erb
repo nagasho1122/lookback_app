@@ -1,18 +1,26 @@
 <div class="nested-fields">
-    <%= f.label :subject, "科目（必須）" %>
-    <%= f.text_field :subject, class: 'form-control' %>
-    <%= f.label :number, "大問（必須）" %>
-    <%= f.text_field :number, class: 'form-control' %>
-    <%= f.label :text, "振り返り（必須）" %>
-    <%= f.text_field :text, class: 'form-control' %>
-    <%= f.hidden_field :lookback_id, :value => @lookback.id  %>
-    
-    <%= link_to_remove_association "削除", f %>
-    
-    <%= f.fields_for :reviews do |u| %>
-      <%= render "lookbacks/review_fields", f: u %>
-    <% end %>
-
   
-    <%= link_to_add_association "追加", f, :reviews %>
+  <div class="form-lookback_detail">
+      <%= f.label :subject, "科目（必須）" %>
+      <%= f.text_field :subject, class: 'form-control' %>
+      <%= f.label :number, "大問（必須）" %>
+      <%= f.text_field :number, class: 'form-control' %>
+      <%= f.label :text, "振り返り（必須）" %>
+      <%= f.text_field :text, class: 'form-control' %>
+      <%= f.hidden_field :lookback_id, :value => @lookback.id  %>
+      
+      <%= link_to_remove_association "削除", f %>
+  </div>
+  
+  <div class="form-add-box">
+    <%= f.fields_for :reviews do |u| %>
+      <%= render "lookbacks/review_fields", f: u%>
+    <% end %>
+  </div>
+
+  <div class="grandchild-addbox" id="detail-association-insertion-point-0"></div>
+  
+    <%= link_to_add_association "追加", f, :reviews, class: "btn btn-primary", id: "grandchild-add-btn-0",
+    data: {association_insertion_node: "#detail-association-insertion-point-0",
+    association_insertion_method: 'before'}%>
 </div>

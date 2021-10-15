@@ -1,31 +1,65 @@
-<%= form_with model: @lookback, url: lookbacks_path, method: :post, local: true do |f| %>
-
-  <%= render 'shared/error_messages', object: f.object %>
+<div class="container lookback-post">
+  <%= form_with model: @lookback, url: lookbacks_path, method: :post, local: true do |f| %>
   
-  <%= f.label :year, "年度（必須）" %>
-  <%= f.text_field :year, class: 'form-control' %>
-  
-  <%= f.label :university, "大学名（必須）" %>
-  <%= f.text_field :university, class: 'form-control' %>
-  
-  <%= f.label :faculty, "学部（必須）" %>
-  <%= f.text_field :faculty, class: 'form-control' %>
-  
-  <%= f.label :department, "学科（必須）" %>
-  <%= f.text_field :department, class: 'form-control' %>
-  
-  <%= f.label :all_text, "全体振り返り（必須）" %>
-  <%= f.text_area :all_text, class: 'form-control' %>
-
-  
-  <%= f.fields_for :lookback_details do |t| %>
-    <%= render "lookbacks/lookback_detail_fields", f: t %>
+    <div class="form-lookback">
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :year, "年度（必須）" %>
+      <%= f.text_field :year, class: 'form-control' %>
+      
+      <%= f.label :university, "大学名（必須）" %>
+      <%= f.text_field :university, class: 'form-control' %>
+      
+      <%= f.label :faculty, "学部（必須）" %>
+      <%= f.text_field :faculty, class: 'form-control' %>
+      
+      <%= f.label :department, "学科（必須）" %>
+      <%= f.text_field :department, class: 'form-control' %>
+      
+      <%= f.label :all_text, "全体振り返り（必須）" %>
+      <%= f.text_area :all_text, class: 'form-control' %>
+    
+      <div class="add-lookback_detail">
+        <%= f.fields_for :lookback_details do |t| %>
+          <%= render "lookbacks/lookback_detail_fields", f: t %>
+        <% end %>
+      </div>
+      
+      <div id="detail-association-insertion-point"></div>
+    
+      <div class="form-add-btn">
+        <%= link_to_add_association "追加", f, :lookback_details, class: "btn btn-secondary",
+          data: {association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'before'}%>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit "記録する"%>
+      </div>
+    </div>
   <% end %>
-
-  
-  <%= link_to_add_association "追加", f, :lookback_details %>
-  
-  <div class="actions">
-    <%= f.submit "記録する"%>
-  </div>
-<% end %>
+</div>
+<script>
+  $(document).ready(function() {
+    var num = 0
+    $('#detail-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
+      .on('cocoon:before-insert', function() {
+        num += 1
+        console.log(num)
+      })
+      .on('cocoon:after-insert', function() {
+        var new_id = `detail-association-insertion-point-${num}`
+        $('#detail-association-insertion-point-0').attr('id', new_id);
+        console.log( $(`#${new_id}`).attr('id'));
+        $('#grandchild-add-btn-0').attr("data-association-insertion-node",`#${new_id}`);
+        $('#grandchild-add-btn-0').attr("id", `grandchild-add-btn-${num}`);
+        console.log($(`#grandchild-add-btn-${num}`).attr("data-association-insertion-node"));
+      })
+      .on("cocoon:before-remove", function() {
+        // フィールド削除前の処理
+      })
+      .on("cocoon:after-remove", function() {
+        // フィールド削除後の処理
+      });
+  })
+</script>

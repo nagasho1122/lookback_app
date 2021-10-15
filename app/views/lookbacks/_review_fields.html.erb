@@ -1,11 +1,18 @@
 <div class="nested-fields">
-    <%= f.label :content, "内容（必須）" %>
-    <%= f.text_field :content, class: 'form-control' %>
+    <div style="background: #ccccbb; opacity: 0.2; 
+        transform: rotate(3deg); width: 35%; height: 35px; margin: 0 auto -1em auto;"></div><!-- ここまで付箋テープ -->
+    <div class="l-border l-p-t l-p-r l-p-b l-p-l" style="background: 
+        #ffffcc; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15); padding: 25px 15px 15px 15px;">
+        <%= f.label :content, "内容（必須）" %>
+        <%= f.text_field :content %>
+        
+        <%= f.label :deadline_at, "締め切り" %>
+        <%= f.date_field :deadline_at %>
+        
+        <%= f.hidden_field :user_id, :value => current_user.id  %>
+    </div><!-- ここまで付箋 -->
+    <p>&nbsp;</p>
     
-    <%= f.label :deadline_at, "締め切り" %>
-    <%= f.date_field :deadline_at, class: 'form-control' %>
-    
-    <%= f.hidden_field :user_id, :value => current_user.id  %>
     
     <%= link_to_remove_association "削除", f %>
   </div>

@@ -1,9 +1,10 @@
 class LookbacksController < ApplicationController
   
   def new
+    @num = 0
     @lookback = current_user.lookbacks.build
-    @lookback_details = @lookback.lookback_details.build
-    @reviews = @lookback_details.reviews.build
+    #@lookback_details = @lookback.lookback_details.build
+    #@reviews = @lookback_details.reviews.build
   end
   
   def create
