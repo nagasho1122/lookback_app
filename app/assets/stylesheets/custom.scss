@@ -2,6 +2,11 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$main-color: #D7092F;
+$accents-color: #FFE150;
+$main-black: #222222;
+$sub-accents-color: #07CC51;
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -11,9 +16,7 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
-}
+
 
 section {
   overflow: auto;
@@ -65,7 +68,132 @@ pre{
   font-size: 200px;
   color: black;
 }
+.container-cancellation {
+  margin-left : 0;
+  margin-right: 0;
+}
 
+.container-fluid{
+  padding: 0;
+}
+
+
+/* --------------------------------
+ * header
+ * -------------------------------- */
+.title-bars{
+  color: $main-color;
+  border: none;
+  z-index: 10;
+  position: fixed;
+  .fa-bars{
+    font-size: 50px;
+  }
+  .fa-times{
+    font-size: 50px;
+  }
+  &:hover{
+    color: $main-color;
+  }
+  top: 32px;
+  right: 16px;
+  display: none;
+}
+
+.header-nav{
+  position: fixed;
+  right: 0;
+  top: 30px;
+  background-color: rgba(255,255,255, 0.8);
+  height: 60px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.nav-link{
+  height: 100%;
+  line-height: 42px;
+  padding: 0;
+  color: $main-black;
+  position: relative;
+  font-weight: bold;
+  font-size: 1em;
+  &:hover{
+    color: $main-black;
+  }
+}
+.underbar-action::after {
+  position: absolute;
+  bottom: 15px;
+  left: 7.5%;
+  content: '';
+  width: 85%;
+  height: 5px;
+  background: $main-color;
+  border-radius: 2.5px;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+.underbar-action:hover::after {
+  transform: scale(1, 1);
+}
+
+.left-border{
+  position: relative;
+}
+.left-border::before {
+    content:"";
+    display:inline-block;
+    width: 1px;
+    height: 15px;
+    background-color: $main-black;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#user_image{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-left: 45px;
+  margin-right: 15px;
+}
+.big-nav-item{
+  margin-left: 20px;
+  background-color: $main-color;
+  color: #FFFFFF;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #FFF;
+  border-right: none;
+  width: 180px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.big-nav-link{
+  line-height: 32px;
+  color: white;
+  display: block;
+  text-align: center;
+  transition: transform .3s;
+   &:hover{
+    color: #FFFFFF;
+    transform: scale(1.2);
+  }
+}
+
+/* --------------------------------
+ * home
+ * -------------------------------- */
+ .home-container{
+   background-color: $main-color;
+   width: 100vw;
+   height: 100vh;
+ }
 
 /* miscellaneous */
 .debug_dump {
