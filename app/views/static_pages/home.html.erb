@@ -1,4 +1,19 @@
 <% provide(:title, "ホーム") %>
 <div class="home-container container-cancellation">
-  <h1>Sample App</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+        <p>過去問は解いたら終わりじゃない。</p>
+        <img class="icon-image d-inline-block" id="home-big-logo" src="/assets/lookback_logo_white">
+        <p class="d-inline-block big-logo-right">で、</p>
+        <p>徹底的に分析しよう。</p>
+      </div>
+      <div class="col-lg-4">
+        <a class="big-write-logo d-block" href=<%= new_lookback_path %> data-turbolinks="false">
+          <i class="fas fa-pencil-alt"></i>
+          <p class="big-word">振り返りを書く！</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

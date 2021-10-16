@@ -1,7 +1,11 @@
-<a href = <%= root_path %> class="logo-box" data-turbolinks="false">
-    <!--<img class="icon-image" id="logo" src="#">-->
-</a>
 <header>
+      <a href = <%= root_path %> class="logo-box" data-turbolinks="false">
+        <% if @logo_color_red %>
+          <img class="icon-image" id="logo" src="/assets/lookback_logo_white">
+        <% else %>
+          <img class="icon-image" id="logo" src="/assets/lookback_logo_red1">
+        <% end %>
+      </a>
       <button class="title-bars bars"><i class="fas fa-bars"></i></button>
         <ul class="nav header-nav" >
           <% if current_user %>
@@ -9,7 +13,7 @@
             <li class="nav-item left-border" id="bar-only"><%= link_to "ホーム", root_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
             <li class="nav-item left-border"><%= link_to "マイページ", user_path(current_user.id) ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
             <li class="nav-item left-border"><%= link_to "ログアウト", log_out_path, class: "nav-link underbar-action" %></li>
-            <li class="nav-item big-nav-item"><%= link_to "振り返りを作成", new_lookback_path ,class: "nav-link big-nav-link", data: {"turbolinks" => false} %></li>
+            <li class="nav-item big-nav-item"><%= link_to "振り返りを書く", new_lookback_path ,class: "nav-link big-nav-link", data: {"turbolinks" => false} %></li>
           <% else  %>
             <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            <% end %>
         </ul>

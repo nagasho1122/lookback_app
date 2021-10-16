@@ -81,6 +81,13 @@ pre{
 /* --------------------------------
  * header
  * -------------------------------- */
+ #logo{
+   position: fixed;
+   top: 36px;
+   left: 30px;
+   width: 320px;
+   z-index: 5;
+ }
 .title-bars{
   color: $main-color;
   border: none;
@@ -104,10 +111,12 @@ pre{
   position: fixed;
   right: 0;
   top: 30px;
+  z-index: 5;
   background-color: rgba(255,255,255, 0.8);
   height: 60px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .nav-link{
@@ -160,6 +169,7 @@ pre{
   margin-top: 5px;
   margin-left: 45px;
   margin-right: 15px;
+  border: 1px solid white;
 }
 .big-nav-item{
   margin-left: 20px;
@@ -193,7 +203,56 @@ pre{
    background-color: $main-color;
    width: 100vw;
    height: 100vh;
+   color: white;
+   padding-top: 200px;
+   padding-left: 4vw;
+   font-size: 2.75vw;
+   
  }
+ #home-big-logo{
+   width: 45vw;
+   vertical-align: middle;
+ }
+ .big-logo-right{
+   font-size: 4.5vw;
+   vertical-align: middle;
+   padding-top: 10px;
+ }
+.big-write-logo{
+  width: 350px;
+  height: 350px;
+  border-radius: 175px;
+  background-color: $accents-color;
+  position: relative;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.29);
+  transition: 0.3s;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+.big-word{
+  font-size: 0.8em;
+  position: absolute;
+  top: 70%;
+  left: 51%;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: $main-color;
+  white-space: nowrap;
+}
+.fa-pencil-alt{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: $main-color;
+  font-size: 3em;
+  transition: 0.3s;
+}
 
 /* miscellaneous */
 .debug_dump {
