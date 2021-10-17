@@ -1,5 +1,14 @@
 <div class="nested-fields">
   
+  <div class="subject-card">
+        <div class="subject-card-top">
+          
+        </div>
+        <div class="subject-card-bottom">
+          
+        </div>
+      </div>
+  
   <div class="form-lookback_detail">
       <%= f.label :subject, "科目" %>
       <%= f.text_field :subject, class: 'form-control' %>
@@ -18,14 +27,16 @@
       <%= render "lookbacks/review_fields", f: u%>
     <% end %>
   </div>
-
-  <div class="grandchild-addbox" id="detail-association-insertion-point-0"></div>
   
-    <%= link_to_add_association "追加", f, :reviews, class: "btn btn-primary", id: "grandchild-add-btn-0",
+  <div id="detail-association-insertion-point-0"></div>
+  
+  <div id="review-association-insertion-point-0"></div>
+  
+    <%= link_to_add_association "追加", f, :lookback_details, class: "btn btn-primary", id: "detail-add-btn-0",
     data: {association_insertion_node: "#detail-association-insertion-point-0",
     association_insertion_method: 'before'}%>
     
-    <%= link_to_add_association "追加", f, :lookback_details, class: "btn btn-secondry", id: "grandchild-add-btn-0",
-    data: {association_insertion_node: "#detail-association-insertion-point-0",
+    <%= link_to_add_association "追加", f, :reviews, class: "btn btn-secondry", id: "review-add-btn-0",
+    data: {association_insertion_node: "#review-association-insertion-point-0",
     association_insertion_method: 'before'}%>
 </div>

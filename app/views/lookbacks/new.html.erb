@@ -42,25 +42,14 @@
       </div>
       
       <div id="subject-association-insertion-point"></div>
-      
-      <div class="add-subject-btn ">
-        <i class="fas fa-plus d-inline"></i>
-        <p class="add-subject-btn-word d-inline-block">科目を追加</p>
-      </div>
-      
-      <div class="subject-card">
-        <div class="subject-card-top">
-          
-        </div>
-        <div class="subject-card-bottom">
-          
-        </div>
-      </div>
     
       <div class="form-add-btn">
-        <%= link_to_add_association "追加", f, :subjects, class: "add-question-btn",
+        <%= link_to_add_association f, :subjects, class: "add-question-btn d-block",
           data: {association_insertion_node: '#subject-association-insertion-point',
-        association_insertion_method: 'before'}%>
+        association_insertion_method: 'before'} do %>
+          <i class="fas fa-plus d-inline"></i>
+          <p class="add-subject-btn-word d-inline-block">科目を追加</p>
+        <% end %>
       </div>
       
       <%= f.label :all_text, "全体振り返り" %>
@@ -75,17 +64,21 @@
 <script>
   $(document).ready(function() {
     var num = 0
-    $('#detail-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
+    $('#subject-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
       .on('cocoon:before-insert', function() {
         num += 1
         console.log(num)
       })
       .on('cocoon:after-insert', function() {
-        var new_id = `detail-association-insertion-point-${num}`
-        $('#detail-association-insertion-point-0').attr('id', new_id);
-        console.log( $(`#${new_id}`).attr('id'));
-        $('#grandchild-add-btn-0').attr("data-association-insertion-node",`#${new_id}`);
-        $('#grandchild-add-btn-0').attr("id", `grandchild-add-btn-${num}`);
+        var new_detail_id = `detail-association-insertion-point-${num}`
+        var new_review_id = `review-association-insertion-point-${num}`
+        $('#detail-association-insertion-point-0').attr('id', new_detail_id);
+        $('#review-association-insertion-point-0').attr('id', new_review_id);
+        console.log( $(`#${new_review_id}`).attr('id'));
+        $('#detail-add-btn-0').attr("data-association-insertion-node",`#${new_detail_id}`);
+        $('#detail-add-btn-0').attr("id", `detail-add-btn-${num}`);
+        $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
+        $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
         console.log($(`#grandchild-add-btn-${num}`).attr("data-association-insertion-node"));
       })
       .on("cocoon:before-remove", function() {
