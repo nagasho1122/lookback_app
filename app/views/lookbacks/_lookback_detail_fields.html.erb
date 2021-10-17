@@ -12,15 +12,4 @@
       <%= link_to_remove_association "削除", f %>
   </div>
   
-  <div class="form-add-box">
-    <%= f.fields_for :reviews do |u| %>
-      <%= render "lookbacks/review_fields", f: u%>
-    <% end %>
-  </div>
-
-  <div class="grandchild-addbox" id="detail-association-insertion-point-0"></div>
-  
-    <%= link_to_add_association "追加", f, :reviews, class: "btn btn-primary", id: "grandchild-add-btn-0",
-    data: {association_insertion_node: "#detail-association-insertion-point-0",
-    association_insertion_method: 'before'}%>
 </div>

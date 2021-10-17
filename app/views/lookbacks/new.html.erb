@@ -36,12 +36,12 @@
       </div>
     
       <div class="add-lookback_detail">
-        <%= f.fields_for :lookback_details do |t| %>
-          <%= render "lookbacks/lookback_detail_fields", f: t %>
+        <%= f.fields_for :subjects do |t| %>
+          <%= render "lookbacks/subject_fields", f: t %>
         <% end %>
       </div>
       
-      <div id="detail-association-insertion-point"></div>
+      <div id="subject-association-insertion-point"></div>
       
       <div class="add-subject-btn ">
         <i class="fas fa-plus d-inline"></i>
@@ -58,8 +58,8 @@
       </div>
     
       <div class="form-add-btn">
-        <%= link_to_add_association "追加", f, :lookback_details, class: "add-question-btn",
-          data: {association_insertion_node: '#detail-association-insertion-point',
+        <%= link_to_add_association "追加", f, :subjects, class: "add-question-btn",
+          data: {association_insertion_node: '#subject-association-insertion-point',
         association_insertion_method: 'before'}%>
       </div>
       

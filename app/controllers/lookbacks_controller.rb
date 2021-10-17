@@ -32,9 +32,9 @@ class LookbacksController < ApplicationController
   private
     def lookback_params
       params.require(:lookback).permit(:university, :faculty, :department,
-                    :all_text, :year, :lookback_details_attributes =>  [:id, :subject,
-                    :number, :text, :_destroy, :reviews_attributes => [:id, 
-                    :user_id, :content, :deadline_at]])
+                    :all_text, :year, :subjects_attributes => [ :subject, :_destroy, :lookback_details_attributes =>  [:id, :unit,
+                    :number, :text, :_destroy], :reviews_attributes => [:id, 
+                    :user_id, :content, :deadline_at, :_destroy]])
     end
   
 end
