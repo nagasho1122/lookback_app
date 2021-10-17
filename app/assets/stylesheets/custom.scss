@@ -6,6 +6,7 @@ $main-color: #D7092F;
 $accents-color: #FFE150;
 $main-black: #222222;
 $sub-accents-color: #07CC51;
+$back-color: #F3F3F3;
 
 
 @mixin box_sizing {
@@ -15,7 +16,13 @@ $sub-accents-color: #07CC51;
 }
 
 /* universal */
+html{
+  background-color: $back-color;
+}
 
+#body{
+  background-color: $back-color;
+}
 
 
 section {
@@ -253,6 +260,155 @@ pre{
   font-size: 3em;
   transition: 0.3s;
 }
+
+/* --------------------------------
+ * form
+ * -------------------------------- */
+ .lookback-container{
+   margin-top: 150px;
+   padding: 50px;
+   background-color: white;
+   border-radius: 50px;
+   box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.1);
+ }
+ 
+ .form-lookback{
+   margin: 20px 40px 20px 40px;
+ }
+ 
+ .school-inf-box{
+   border-bottom: 3px solid $main-color;
+   padding-bottom: 20px;
+   margin-bottom:  50px ;
+ }
+ 
+ .add-subject-btn{
+   background-color: $sub-accents-color;
+   width: 100%;
+   color: white;
+   text-align: center;
+   height: 40px;
+   font-size: 1.4em;
+   position: relative;
+   cursor: pointer;
+   -webkit-transition: all .3s;
+   transition: all .3s;
+   &:hover{
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+   }
+   .fa-plus{
+     position: absolute;
+     top: 10px;
+     left: 30%;
+   }
+ }
+ 
+ /* --------------------------------
+ * form-animation
+ * -------------------------------- */
+ @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
+ 
+ .group        { 
+  position:relative; 
+  margin-bottom: 35px; 
+}
+.department-group{
+  margin-left: 40px;
+}
+
+.inputMaterial{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:360px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
+.university-form{
+  width:360px;
+}
+
+.inputMaterial:focus    { outline:none;}
+
+/* LABEL ======================================= */
+
+.label {
+  color:#999; 
+  font-size:14px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.inputMaterial:focus ~ .label, .inputMaterial:valid ~ .label    {
+  top:-20px;
+  font-size:14px;
+  color: $sub-accents-color;
+}
+
+.bar  { position:relative; display:block; width:360px; }
+.university-bar{width: 360px;}
+
+.bar:before, .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background: $sub-accents-color; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+.inputMaterial:focus ~ .bar:before, .inputMaterial:focus ~ .bar:after {
+  width:50%;
+}
+
+
+/* active state */
+.inputMaterial:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+
+
+
+ 
+ /* --------------------------------
+ * 
+ * -------------------------------- */
 
 /* miscellaneous */
 .debug_dump {

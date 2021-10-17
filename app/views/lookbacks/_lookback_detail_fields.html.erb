@@ -1,11 +1,11 @@
 <div class="nested-fields">
   
   <div class="form-lookback_detail">
-      <%= f.label :subject, "科目（必須）" %>
+      <%= f.label :subject, "科目" %>
       <%= f.text_field :subject, class: 'form-control' %>
-      <%= f.label :number, "大問（必須）" %>
+      <%= f.label :number, "大問" %>
       <%= f.text_field :number, class: 'form-control' %>
-      <%= f.label :text, "振り返り（必須）" %>
+      <%= f.label :text, "振り返り" %>
       <%= f.text_field :text, class: 'form-control' %>
       <%= f.hidden_field :lookback_id, :value => @lookback.id  %>
       
