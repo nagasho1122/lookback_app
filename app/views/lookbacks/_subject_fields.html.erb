@@ -1,42 +1,45 @@
 <div class="nested-fields">
   
   <div class="subject-card">
-        <div class="subject-card-top">
-          
-        </div>
-        <div class="subject-card-bottom">
-          
-        </div>
+    <div class="subject-card-top">
+      <%= link_to_remove_association f, class: "remove-subject-btn d-block" do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+      <div class="form-lookback_detail">
+        <%= f.text_field :subject, class: 'subject-form font-awesome-solid-icon', placeholder: "科目を入力 \uf5ad" %>
       </div>
-  
-  <div class="form-lookback_detail">
-      <%= f.label :subject, "科目" %>
-      <%= f.text_field :subject, class: 'form-control' %>
-      
-      <%= link_to_remove_association "削除", f %>
-  </div>
-  
-  <div class="form-add-box">
-    <%= f.fields_for :lookback_details do |u| %>
-      <%= render "lookbacks/lookback_detail_fields", f: u%>
-    <% end %>
-  </div>
-  
-  <div class="form-add-box">
-    <%= f.fields_for :reviews do |u| %>
-      <%= render "lookbacks/review_fields", f: u%>
-    <% end %>
-  </div>
-  
-  <div id="detail-association-insertion-point-0"></div>
-  
-  <div id="review-association-insertion-point-0"></div>
-  
-    <%= link_to_add_association "追加", f, :lookback_details, class: "btn btn-primary", id: "detail-add-btn-0",
-    data: {association_insertion_node: "#detail-association-insertion-point-0",
-    association_insertion_method: 'before'}%>
+      <%= link_to_add_association f, :lookback_details, class: "add-content-btn question-btn d-block", id: "detail-add-btn-0",
+      data: {association_insertion_node: "#detail-association-insertion-point-0",
+      association_insertion_method: 'before'} do%>
+        <p class="add-content-word d-inline">大問</p>
+        <i class="fas fa-plus d-inline"></i>
+      <% end %>
     
-    <%= link_to_add_association "追加", f, :reviews, class: "btn btn-secondry", id: "review-add-btn-0",
-    data: {association_insertion_node: "#review-association-insertion-point-0",
-    association_insertion_method: 'before'}%>
+      <%= link_to_add_association f, :reviews, class: "add-content-btn review-btn d-block", id: "review-add-btn-0",
+      data: {association_insertion_node: "#review-association-insertion-point-0",
+      association_insertion_method: 'before'} do%>
+        <p class="add-content-word d-inline">付箋</p>
+        <i class="fas fa-plus d-inline"></i>
+      <% end %>
+    </div>
+    <div class="subject-card-bottom">
+      <div class="form-add-box">
+      <%= f.fields_for :lookback_details do |u| %>
+        <%= render "lookbacks/lookback_detail_fields", f: u%>
+      <% end %>
+      </div>
+      
+      <div id="detail-association-insertion-point-0"></div>
+      
+      <div class="form-add-box">
+        <%= f.fields_for :reviews do |u| %>
+          <%= render "lookbacks/review_fields", f: u%>
+        <% end %>
+      </div>
+      
+      <div id="review-association-insertion-point-0"></div>
+      
+    </div>
+  </div>
+  
 </div>

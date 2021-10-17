@@ -7,7 +7,7 @@ $accents-color: #FFE150;
 $main-black: #222222;
 $sub-accents-color: #07CC51;
 $back-color: #F3F3F3;
-
+$gray-btn-color: #999999;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -264,6 +264,8 @@ pre{
 /* --------------------------------
  * form
  * -------------------------------- */
+ 
+ /* form-mainpage */
  .lookback-container{
    margin-top: 150px;
    padding: 50px;
@@ -307,6 +309,146 @@ pre{
      color: white;
    }
  }
+ 
+ /* form subject card */
+ 
+ .subject-card{
+   width: 100%;
+   min-height: 500px;
+   border-radius: 50px;
+   border: 2px solid black;
+   margin-bottom: 50px;
+ }
+ 
+ .subject-card-top{
+   position: relative;
+   text-align: center;
+   padding-top: 10px;
+   border-bottom: 2px solid black;
+ }
+ 
+ .remove-subject-btn{
+   color: white;
+   font-size: 2em;
+   background-color: $gray-btn-color;
+   width: 50px;
+   height: 50px;
+   border-radius: 25px;
+   position: absolute;
+   left: 50px;
+   top: 7px;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   &:hover{
+     transform:rotateY(180deg);
+     color: white;
+   }
+ }
+ 
+ .add-content-btn{
+   color: white;
+   font-size: 1.2em;
+   width: 100px;
+   height: 50px;
+   border-radius: 25px;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   &:hover{
+     transform: scale(1.1);
+     color: white;
+     text-decoration: none;
+   }
+   p, i{
+     line-height: 50px;
+   }
+ }
+ 
+ .question-btn{
+   background-color: $main-color;
+   position: absolute;
+   top: 6px;
+   right: 160px;
+ }
+ 
+ .review-btn{
+   background-color: $accents-color;
+   position: absolute;
+   top: 6px;
+   right: 40px;
+ }
+ 
+ .subject-form{
+   border: none;
+   wodth: 100px;
+   font-size: 2em;
+   font-weight: bold;
+   text-align: center;
+   text-decoration: none;
+   outline: none;
+ }
+ 
+ input.subject-form::placeholder {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+}
+ 
+ /* form lookback_detail card */
+ .lookback-detail-card{
+   width: 300px;
+   background-color: $back-color;
+   border-radius: 10px;
+   
+   margin: 10px;
+   height: 300px;
+ }
+ 
+ .lookback-detail-card-top{
+   border-bottom: 1px solid $main-color;
+   text-align: center;
+   position: relative;
+   font-size: 1.2em;
+   padding: 5px 0;
+   margin-bottom: 7px;
+ }
+ 
+.lookback-detail-remove-btn{
+  position: absolute;
+  font-size: 1.5em;
+  top: 0;
+  left: 10px;
+  color: $gray-btn-color;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  &:hover{
+     transform: scale(1.1);
+     color: $gray-btn-color;
+     text-decoration: none;
+   }
+}
+
+.lookback-detail-card-bottom{
+  margin: 0 5px;
+}
+
+.lookback-detail-card-bottom-formbox{
+  border: none;
+  width: 100%;
+  padding: 5px 5px;
+  resize: none;
+  outline: none;
+}
+
+.form-unit{
+  border-bottom: 1px solid #757575;
+}
+
+.form-lookback_word{
+  height: 200px;
+}
  
  /* --------------------------------
  * form-animation

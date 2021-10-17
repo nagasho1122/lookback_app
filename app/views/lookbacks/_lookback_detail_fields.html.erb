@@ -1,13 +1,18 @@
 <div class="nested-fields">
   
-  <div class="form-lookback_detail">
-      <%= f.label :number, "大問" %>
-      <%= f.text_field :number, class: 'form-control' %>
-      <%= f.label :text, "振り返り" %>
-      <%= f.text_field :text, class: 'form-control' %>
+  <div class="lookback-detail-card">
+    <div class="lookback-detail-card-top">
+      <%= f.hidden_field :number, :value => 1%>
+      <div class="number-word">大問：1</div>
+      <%= link_to_remove_association f, class: "lookback-detail-remove-btn" do %>
+        <i class="fas fa-times"></i>
+      <% end %>
+    </div>
+    <div class="lookback-detail-card-bottom">
+      <%= f.text_field :unit, class: 'lookback-detail-card-bottom-formbox form-unit', placeholder: "単元"%>
+      <%= f.text_area :text, class: 'lookback-detail-card-bottom-formbox form-lookback_word', placeholder: "振り返り" %>
       <%= f.hidden_field :lookback_id, :value => @lookback.id  %>
-      
-      <%= link_to_remove_association "削除", f %>
+    </div>
   </div>
   
 </div>
