@@ -85,4 +85,15 @@
         // フィールド削除後の処理
       });
   })
+  $(function(){
+    // 大問を自動的に入力するコード
+    $(document).on("click", ".add-content-btn", function(){
+      var question_num = $(this).data("question-num");
+      question_num += 1;
+      $(this).data("question-num", question_num);
+      $(".number-word-right").attr("value", question_num)
+      $(".number-word-right").attr("class", "number-word-right-done")
+    });
+  });
+
 </script>
