@@ -449,7 +449,59 @@ pre{
 .form-lookback_word{
   height: 200px;
 }
+
+/* form review card */
+.review-tape{
+  background: #ccccbb; opacity: 0.2; 
+  transform: rotate(3deg);
+  width: 35%;
+  height: 35px;
+  margin: 0 auto -1em auto;
+}
+
+.review-box{
+  background: #ffffcc;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  padding: 20px 15px 5px 15px;
+}
+
+.review-card-box{
+  width: 350px;
+  height: 150px;
+  position: relative;
+}
+
+.review-text{
+  resize: none;
+  border: none;
+  background-color: #ffffcc;
+  outline: none;
+  width: 100%;
+  height: 80%;
+}
  
+.review-remove-btn{
+  position: absolute;
+  font-size: 2em;
+  top: -6px;
+  right: -16px;
+  .fa-times-circle{
+    color: $main-color;
+    &:hover{
+      text-decoration: none;
+      color: $sub-accents-color;
+    }
+  }
+}
+
+.deadline-text{
+  border: none;
+  background-color: #ffffcc;
+  outline: none;
+  width: 140px;
+  margin-left: 40%;
+}
+
  /* --------------------------------
  * form-animation
  * -------------------------------- */
