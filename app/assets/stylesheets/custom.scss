@@ -401,8 +401,7 @@ pre{
    width: 300px;
    background-color: $back-color;
    border-radius: 10px;
-   
-   margin: 10px;
+   margin-bottom: 20px;
    height: 300px;
  }
  
@@ -466,7 +465,7 @@ pre{
 }
 
 .review-card-box{
-  width: 350px;
+  width: 300px;
   height: 150px;
   position: relative;
 }
@@ -483,8 +482,8 @@ pre{
 .review-remove-btn{
   position: absolute;
   font-size: 2em;
-  top: -6px;
-  right: -16px;
+  top: -4px;
+  left: -13px;
   .fa-times-circle{
     color: $main-color;
     &:hover{
@@ -499,8 +498,49 @@ pre{
   background-color: #ffffcc;
   outline: none;
   width: 140px;
-  margin-left: 40%;
+  margin-left: 30%;
 }
+
+/* form card flex setting */
+
+.flex-container-detail, .flex-container-review{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-between;
+}
+
+.flex-container-detail{
+  padding: 20px 30px 0px 30px;
+  margin-bottom: 10px;
+}
+
+.flex-container-review{
+  padding: 0 30px 20px 30px;
+  margin-top: 10px;
+}
+
+.insertion-position-box-detail, .insertion-position-box-review{
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .flex-container-detail:after {
+    content: "";
+    display: block;
+    width: 300px;  /* .boxに指定したwidthと同じ幅を指定する */
+    height: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .flex-container-review:after {
+    content: "";
+    display: block;
+    width: 300px;  /* .boxに指定したwidthと同じ幅を指定する */
+    height: 0;
+  }
+}
+
 
  /* --------------------------------
  * form-animation

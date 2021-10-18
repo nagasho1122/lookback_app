@@ -67,19 +67,16 @@
     $('#subject-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
       .on('cocoon:before-insert', function() {
         num += 1
-        console.log(num)
       })
       .on('cocoon:after-insert', function() {
         var new_detail_id = `detail-association-insertion-point-${num}`
         var new_review_id = `review-association-insertion-point-${num}`
         $('#detail-association-insertion-point-0').attr('id', new_detail_id);
         $('#review-association-insertion-point-0').attr('id', new_review_id);
-        console.log( $(`#${new_review_id}`).attr('id'));
         $('#detail-add-btn-0').attr("data-association-insertion-node",`#${new_detail_id}`);
         $('#detail-add-btn-0').attr("id", `detail-add-btn-${num}`);
         $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
         $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
-        console.log($(`#grandchild-add-btn-${num}`).attr("data-association-insertion-node"));
       })
       .on("cocoon:before-remove", function() {
         // フィールド削除前の処理

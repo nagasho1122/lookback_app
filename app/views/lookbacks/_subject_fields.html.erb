@@ -2,7 +2,7 @@
   
   <div class="subject-card">
     <div class="subject-card-top">
-      <%= link_to_remove_association f, class: "remove-subject-btn d-block" do %>
+      <%= link_to_remove_association f, class: "remove-subject-btn d-block", data: { confirm: "本当に削除しますか?"} do %>
         <i class="far fa-trash-alt"></i>
       <% end %>
       <div class="form-lookback_detail">
@@ -23,21 +23,26 @@
       <% end %>
     </div>
     <div class="subject-card-bottom">
-      <div class="form-add-box">
-      <%= f.fields_for :lookback_details do |u| %>
-        <%= render "lookbacks/lookback_detail_fields", f: u%>
-      <% end %>
+      
+      <div class="flex-container-detail">
+        <div class="insertion-position-box-detail" id="detail-association-insertion-point-0"></div>
       </div>
       
-      <div id="detail-association-insertion-point-0"></div>
+      <div class="flex-container-review">
+        <div class="insertion-position-box-review", id="review-association-insertion-point-0"></div>
+      </div>
+      
+      <div class="form-add-box">
+        <%= f.fields_for :lookback_details do |u| %>
+          <%= render "lookbacks/lookback_detail_fields", f: u%>
+        <% end %>
+      </div>
       
       <div class="form-add-box">
         <%= f.fields_for :reviews do |u| %>
           <%= render "lookbacks/review_fields", f: u%>
         <% end %>
       </div>
-      
-      <div id="review-association-insertion-point-0"></div>
       
     </div>
   </div>
