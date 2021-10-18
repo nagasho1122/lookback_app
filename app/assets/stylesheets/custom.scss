@@ -314,10 +314,11 @@ pre{
  
  .subject-card{
    width: 100%;
-   min-height: 500px;
+   min-height: 440px;
    border-radius: 50px;
    border: 2px solid black;
    margin-bottom: 50px;
+   position: relative;
  }
  
  .subject-card-top{
@@ -375,6 +376,21 @@ pre{
    position: absolute;
    top: 6px;
    right: 40px;
+ }
+ 
+ .review-btn-small{
+   background-color: $accents-color;
+   position: absolute;
+   bottom: 3px;
+   right: 40px;
+   text-align: center;
+   font-size: 1em;
+   width: 60px;
+   height: 30px;
+   border-radius: 15px;
+   p, i{
+     line-height: 30px;
+   }
  }
  
  .subject-form{
@@ -523,8 +539,9 @@ pre{
 }
 
 .flex-container-review{
-  padding: 0 30px 20px 30px;
+  padding: 0 30px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .insertion-position-box-detail, .insertion-position-box-review{

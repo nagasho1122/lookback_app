@@ -32,6 +32,12 @@
       <div class="flex-container-review">
         <div class="insertion-position-box-review", id="review-association-insertion-point-0"></div>
       </div>
+    <%= link_to_add_association f, :reviews, class: "add-content-btn review-btn-small d-block", id: "review-add-btn-0",
+    data: {association_insertion_node: "#review-association-insertion-point-0",
+    association_insertion_method: 'before'} do%>
+      <p class="add-content-word d-inline">付箋</p>
+      <i class="fas fa-plus d-inline"></i>
+    <% end %>
       
       <div class="form-add-box">
         <%= f.fields_for :lookback_details do |u| %>
