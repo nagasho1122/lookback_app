@@ -776,7 +776,7 @@ pre{
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  border: 5px solid $main-color;
+  border: 4px solid $main-color;
   display: inline-block;
   vertical-align: middle;
  }
@@ -788,10 +788,120 @@ pre{
    vertical-align: middle;
  }
  
- 
  /* --------------------------------
- * 
+ * lookback-card animation
  * -------------------------------- */
+ @import url(https://fonts.googleapis.com/css?family=Roboto:700);
+ 
+.lookback-card {
+  background: $back-color;
+  display: block;
+  margin : 0 auto 30px auto;
+  width : 600px;
+  height : 150px;
+  transition : .2s;
+  overflow: hidden;
+  cursor : pointer;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.lookback-card-left {
+  position : relative;
+  width : 500px;
+  height : 150px;
+  padding-top: 2px;
+  background : $sub-accents-color;
+  left : -480px;
+  transition : .3s;
+}
+.lookback-card-right {
+  position: absolute;
+  width: 300px;
+  margin: auto 0 auto 0;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color : black;
+  transition : .3s;
+  
+}
+.lookback-card-text{
+  line-height: 0.7em;
+  font-size: 1.2em;
+}
+
+.lookback-card-department{
+  padding-left: 15px;
+}
+
+.lookback-card-left-text {
+  margin-top : 28px;
+  float: right;
+  color : #FFF;
+  margin-right: 8px;
+  p{
+    font-size: 2em;
+    margin-right : 14px;
+    line-height: 1em;
+    letter-spacing: 0.03em;
+  }
+  i{
+    font-size: 3em;
+    padding-left : 34px;
+  }
+}
+.lookback-card:hover .lookback-card-left{ 
+  left: -330px;
+}
+.lookback-card:hover .lookback-card-right{ 
+  margin-left : 100px;
+}
+.lookback-card:active {
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+
+/* --------------------------------
+ * lookback-card btn
+ * -------------------------------- */
+ 
+ .lookback-card-box{
+   position: relative;
+   width: 600px;
+   margin: auto;
+ }
+ 
+ .lookback-card-btn-area{
+   position: absolute;
+   right: 10px;
+   bottom: 10px;
+   padding: 5px;
+ }
+ 
+ .lookback-card-btn{
+   -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    color:$main-black;
+    &:hover{
+      text-decoration: none;
+   }
+ }
+ 
+.lookback-card-edit-btn{
+  &:hover{
+    color: $main-color;
+  }
+}
+
+.lookback-card-destroy-btn{
+  &:hover{
+    color: $main-color;
+  }
+}
+
+
 
 /* miscellaneous */
 .debug_dump {
