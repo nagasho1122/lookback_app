@@ -34,29 +34,37 @@
           <%= f.label :department, "学科" , class: "label"%>
         </div>
       </div>
-    
-      <div class="add-lookback_detail">
-        <%= f.fields_for :subjects do |t| %>
-          <%= render "lookbacks/subject_fields", f: t %>
-        <% end %>
+      
+      <div class="subject-inf-box">
+        <div class="add-lookback_detail">
+          <%= f.fields_for :subjects do |t| %>
+            <%= render "lookbacks/subject_fields", f: t %>
+          <% end %>
+        </div>
+        
+        <div id="subject-association-insertion-point"></div>
+      
+        <div class="form-add-btn">
+          <%= link_to_add_association f, :subjects, class: "add-question-btn d-block",
+            data: {association_insertion_node: '#subject-association-insertion-point',
+          association_insertion_method: 'before'} do %>
+            <i class="fas fa-plus d-inline"></i>
+            <p class="add-subject-btn-word d-inline-block">科目を追加</p>
+          <% end %>
+        </div>
       </div>
       
-      <div id="subject-association-insertion-point"></div>
-    
-      <div class="form-add-btn">
-        <%= link_to_add_association f, :subjects, class: "add-question-btn d-block",
-          data: {association_insertion_node: '#subject-association-insertion-point',
-        association_insertion_method: 'before'} do %>
-          <i class="fas fa-plus d-inline"></i>
-          <p class="add-subject-btn-word d-inline-block">科目を追加</p>
-        <% end %>
+      <div class="group">
+        <%= f.text_area :all_text, class: 'inputMaterial-all_text all_text-form', :required => true %>
+        <span class="highlight"></span>
+        <%= f.label :all_text, "全体振り返り", class: "label label-all_text" %>
       </div>
       
-      <%= f.label :all_text, "全体振り返り" %>
-      <%= f.text_area :all_text, class: 'form-control' %>
+      
       
       <div class="actions">
-        <%= f.submit "記録する"%>
+        <%= f.submit "記録する", class: "submit-btn"%>
+        <i class="fas fa-chevron-right"></i>
       </div>
     </div>
   <% end %>
