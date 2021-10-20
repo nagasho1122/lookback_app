@@ -65,9 +65,8 @@ class LookbackTest < ActiveSupport::TestCase
   
   test "associated lookback_details should be destroy" do
     @lookback.save
-    @lookback.lookback_details.create!(subject: "数学",  
-                    number: 1, text:  "非常に難しかった。できなくて悔しい。")
-    assert_difference "LookbackDetail.count", -1 do
+    @lookback.subjects.create!(subject: "数学",  )
+    assert_difference "Subject.count", -1 do
       @lookback.destroy
     end
   end

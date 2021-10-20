@@ -4,16 +4,16 @@ one:
   content: "単語帳 2周"
   deadline_at: <%= 15.minutes.ago %>
   user: example1
-  lookback_detail: example_lookback_detail1
+  subject: one
 
 two:
   content: "問題集1周"
   deadline_at: <%= 15.minutes.ago %>
   user: example2
-  lookback_detail: example_lookback_detail2
+  subject: one
 
 most_recent:
   content: "問題集1周"
   deadline_at: <%= Time.zone.now %>
   user: example2
-  lookback_detail: example_lookback_detail2
+  subject: two

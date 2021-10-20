@@ -3,14 +3,14 @@
   <div class="lookback-detail-card">
     <div class="lookback-detail-card-top">
       <div class="number-word-left d-inline">大問：</div>
-      <%= f.text_field :number, :value => 1, class: "number-word-right"%>
+      <%= f.text_field :number, :value => 1, class: "number-word-right", :required => true%>
       <%= link_to_remove_association f, class: "lookback-detail-remove-btn" do %>
         <i class="fas fa-times"></i>
       <% end %>
     </div>
     <div class="lookback-detail-card-bottom">
-      <%= f.text_field :unit, class: 'lookback-detail-card-bottom-formbox form-unit', placeholder: "単元"%>
-      <%= f.text_area :text, class: 'lookback-detail-card-bottom-formbox form-lookback_word', placeholder: "振り返り" %>
+      <%= f.text_field :unit, class: 'lookback-detail-card-bottom-formbox form-unit', placeholder: "単元", :required => true%>
+      <%= f.text_area :text, class: 'lookback-detail-card-bottom-formbox form-lookback_word', placeholder: "振り返り", :required => true %>
       <%= f.hidden_field :lookback_id, :value => @lookback.id  %>
     </div>
   </div>

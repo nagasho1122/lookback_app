@@ -2,9 +2,9 @@ require "test_helper"
 
 class ReviewTest < ActiveSupport::TestCase
   def setup
-    @lookback_detail = lookback_details(:example_lookback_detail1)
+    @subject = subjects(:one)
     @user = users(:example1)
-    @review = @lookback_detail.reviews.build(content: "単語帳 2周",  user_id: @user.id,
+    @review = @subject.reviews.build(content: "単語帳 2周",  user_id: @user.id,
                     deadline_at: Time.zone.now)
   end
   
@@ -12,10 +12,6 @@ class ReviewTest < ActiveSupport::TestCase
     assert @review.valid?
   end
   
-  test "lookback_detail_id should be present" do
-    @review.lookback_detail_id = nil
-    assert_not @review.valid?
-  end
   
   test "user_id should be present" do
     @review.user_id = nil

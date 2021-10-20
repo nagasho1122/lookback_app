@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  subject: MyString
+  subject: "数学"
   lookback: one
 
 two:
-  subject: MyString
-  lookback: two
+  subject: "英語"
+  lookback: one
+
+example:
+  subject: "英語"
+  lookback: one

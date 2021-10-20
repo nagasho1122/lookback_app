@@ -85,6 +85,14 @@ pre{
 }
 
 
+.normal-page-container{
+   margin-top: 150px;
+   padding: 50px;
+   background-color: white;
+   border-radius: 50px;
+   box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.1);
+ }
+
 /* --------------------------------
  * header
  * -------------------------------- */
@@ -266,13 +274,7 @@ pre{
  * -------------------------------- */
  
  /* form-mainpage */
- .lookback-container{
-   margin-top: 150px;
-   padding: 50px;
-   background-color: white;
-   border-radius: 50px;
-   box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.1);
- }
+ 
  
  .form-lookback{
    margin: 20px 40px 20px 40px;
@@ -761,7 +763,31 @@ pre{
 }
 
 
-
+/* --------------------------------
+ * user-home
+ * -------------------------------- */
+ 
+ .page-margin-box{
+   margin: 20px 30px 20px 30px;
+ }
+ 
+ 
+ #user_home-userimage{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 5px solid $main-color;
+  display: inline-block;
+  vertical-align: middle;
+ }
+ 
+ #user_home-username{
+   display: inline-block;
+   font-size: 1.6em;
+   padding-left: 30px;
+   vertical-align: middle;
+ }
+ 
  
  /* --------------------------------
  * 

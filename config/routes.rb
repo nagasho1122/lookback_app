@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :lookbacks, only: [:create, :destroy, :show, :edit, :update, :new]
   resources :lookback_details, only: [:create, :destroy, :update]
   resources :reviews, only: [:create, :destroy, :update]
+  resources :subject, only: [:create, :destroy, :update]
 end

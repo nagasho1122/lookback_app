@@ -2,9 +2,9 @@
     <div class="review-card-box">
         <div class= "review-tape"></div>
         <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box">
-            <%= f.text_area :content, class: "review-text" %>
+            <%= f.text_area :content, class: "review-text", :required => true %>
             <div class="deadline-box">
-                <%= f.date_field :deadline_at, class: "deadline-text d-inline" %>
+                <%= f.date_field :deadline_at, class: "deadline-text d-inline", :required => true %>
                 <p class="deadline-word d-inline">まで</p>
             </div>
             

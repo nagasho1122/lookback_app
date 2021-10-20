@@ -18,6 +18,9 @@ class LookbacksController < ApplicationController
   end
   
   def destroy
+    Lookback.find(params[:id]).destroy
+    flash[:success] = "振り返りを削除しました"
+    redirect_to root_url
   end
   
   def show

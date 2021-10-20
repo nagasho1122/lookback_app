@@ -1,4 +1,4 @@
-<div class="container lookback-container">
+<div class="container normal-page-container">
   <%= form_with model: @lookback, url: lookbacks_path, method: :post, local: true do |f| %>
   
     <div class="form-lookback">
@@ -57,7 +57,7 @@
       <div class="group">
         <%= f.text_area :all_text, class: 'inputMaterial-all_text all_text-form', :required => true %>
         <span class="highlight"></span>
-        <%= f.label :all_text, "全体振り返り", class: "label label-all_text" %>
+        <%= f.label :all_text, "全体振り返り", class: "label label-all_text", :required => true %>
       </div>
       
       

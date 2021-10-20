@@ -32,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "associated reviews should be destroy" do
     @user.save
-    @user.reviews.create!(content: "単語帳 2周",  lookback_detail_id: lookback_details(:example_lookback_detail1).id,
+    @user.reviews.create!(content: "単語帳 2周",  subject_id: subjects(:one).id,
                     deadline_at: Time.zone.now)
     assert_difference "Review.count", -1 do
       @user.destroy
