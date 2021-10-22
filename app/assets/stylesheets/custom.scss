@@ -494,7 +494,8 @@ pre{
 
 /* form review card */
 .review-tape{
-  background: #ccccbb; opacity: 0.2; 
+  background: #ccccbb; 
+  opacity: 0.2; 
   transform: rotate(3deg);
   width: 35%;
   height: 35px;
@@ -901,6 +902,27 @@ pre{
   }
 }
 
+/* --------------------------------
+ * review-card-box
+ * -------------------------------- */
+.review-text-user{
+  width: 266px;
+  height: 48px;
+  margin: 2px;
+}
+
+.deadline-box-user{
+  width: 270px;
+  height: 29px;
+}
+
+.near-three-days{
+  background: #ffdada;
+}
+
+.deadline-text-user-show{
+  margin-left: 40%;
+}
 
 
 /* miscellaneous */

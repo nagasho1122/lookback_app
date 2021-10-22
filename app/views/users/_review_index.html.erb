@@ -1,0 +1,21 @@
+<div id="reviews-box">
+  <% [@reviewsNear, @reviewsNotNear, @reviewsExpire].zip(["near-three-days", "", "expired"]) do |objects, effect| %>
+    <% objects.each do |review| %>
+      <div class="review-card-box">
+          <div class= "review-tape"></div>
+          <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page <%= effect if !effect.empty? %>">
+              <div class="review-text review-text-user <%= effect if !effect.empty? %>">
+                <%= review.content %>
+              </div>
+              <div class="deadline-box deadline-box-user <%= effect if !effect.empty? %>">
+                  <div class="deadline-text d-inline <%= effect if !effect.empty? %> deadline-text-user-show" >
+                    <%= review.deadline_at.strftime("%Y年%m月%d日") %>
+                  </div>
+                  <p class="deadline-word d-inline">まで</p>
+              </div>
+          </div>
+          <p>&nbsp;</p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
