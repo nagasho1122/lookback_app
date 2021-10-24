@@ -7,13 +7,34 @@
           <div id="user_home-username">
             <%= @user.name %>
           </div>
+          <a class="user-home-lookback-btn d-block" href=<%= new_lookback_path %> data-turbolinks="false">
+            <i class="fas fa-pencil-alt"></i>
+            <p class="big-word">振り返りを書く！</p>
+          </a>
+          <%= form_with model: @review, url: reviews_path, method: :post, local: true do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <div class="review-card-box review-card-box-user-home">
+                <div class= "review-tape"></div>
+                <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box">
+                  <%= f.text_area :content, class: "review-text", :required => true %>
+                  <div class="deadline-box deadline-box-user-left">
+                    <%= f.date_field :deadline_at, class: "deadline-text deadline-tect-user-left d-inline", :required => true %>
+                    <p class="deadline-word d-inline">まで</p>
+                  </div>
+                  </div>
+                <p>&nbsp;</p>
+            </div>
+            <div class="actions-user-home">
+              <%= f.submit "記録する", class: "submit-user-home-btn"%>
+              <i class="fas fa-paper-plane"></i>
+            </div>
+          <% end %>
         </div>
       </div>
       <div id="user_home-right" class="col-lg-8">
         <%= render "users/lookback_index" %>
         <%= render "users/review_index" %>
       </div>
-      
         
       </div>
     </div>

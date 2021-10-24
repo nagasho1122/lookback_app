@@ -1,3 +1,4 @@
+<h1 class="home-box-title">振り返り</h1>
 <div id="lookbacks-box">
     <% @lookbacks.each do |lookback| %>
       <div class="lookback-card-box">
@@ -34,4 +35,10 @@
           </div>
       </div>
     <% end %>
+    <div class="detail-jamp-btn-box">
+      <%= link_to lookbacks_path, class: "detail-jamp-btn", data: {"turbolinks" => false} do%>
+        <p class="detail-jamp-btn-word d-inline">振り返り一覧</p>
+        <i class="fas fa-caret-right d-inline"></i>
+      <% end %>
+    </div>
   </div>
