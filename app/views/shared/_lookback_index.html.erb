@@ -1,44 +1,35 @@
-<h1 class="home-box-title">振り返り</h1>
-<div id="lookbacks-box">
-    <% @lookbacks.each do |lookback| %>
-      <div class="lookback-card-box">
-        <a class="lookback-card" src="#">
-          <div class="lookback-card-left">
-            <div class="lookback-card-left-text">
-              <p>CHECK!</p>
-              <i class="fas fa-search"></i>
-            </div>
-          </div>
-          <div class="lookback-card-right">
-            <p class="lookback-card-year lookback-card-text"><%= lookback.year %>年度</p>
-            <p class="lookback-card-name lookback-card-text">
-              <%= lookback.university%>
-              <%= "大学" if !lookback.university.include?("大学") %>
-            </p>
-            <p class="lookback-card-faculty lookback-card-text d-inline">
-              <%= lookback.faculty %>
-              <%= "学部" if !lookback.faculty.include?("学部") %>
-            </p>
-            <p class="lookback-card-department lookback-card-text d-inline">
-              <%= lookback.department %>
-              <%= "学科" if !lookback.department.include?("学科") %>
-            </p>
-          </div>
-          </a>
-          <div class="lookback-card-btn-area">
-            <%= link_to edit_lookback_path(lookback.id), class: "lookback-card-btn lookback-card-edit-btn d-block", data: {"turbolinks" => false} do%>
-              編集<i class="fas fa-pen"></i>
-            <% end %>
-            <%= link_to lookback, method: :delete, class: "lookback-card-btn lookback-card-destroy-btn d-block", data: { confirm: "本当に削除しますか?"} do%>
-              削除<i class="fas fa-trash"></i>
-            <% end %>
-          </div>
+<% @lookbacks.each do |lookback| %>
+  <div class="lookback-card-box">
+    <a class="lookback-card" src="#">
+      <div class="lookback-card-left">
+        <div class="lookback-card-left-text">
+          <p>CHECK!</p>
+          <i class="fas fa-search"></i>
+        </div>
       </div>
-    <% end %>
-    <div class="detail-jamp-btn-box">
-      <%= link_to lookbacks_path, class: "detail-jamp-btn", data: {"turbolinks" => false} do%>
-        <p class="detail-jamp-btn-word d-inline">振り返り一覧</p>
-        <i class="fas fa-caret-right d-inline"></i>
-      <% end %>
-    </div>
+      <div class="lookback-card-right">
+        <p class="lookback-card-year lookback-card-text"><%= lookback.year %>年度</p>
+        <p class="lookback-card-name lookback-card-text">
+          <%= lookback.university%>
+          <%= "大学" if !lookback.university.include?("大学") %>
+        </p>
+        <p class="lookback-card-faculty lookback-card-text d-inline">
+          <%= lookback.faculty %>
+          <%= "学部" if !lookback.faculty.include?("学部") %>
+        </p>
+        <p class="lookback-card-department lookback-card-text d-inline">
+          <%= lookback.department %>
+          <%= "学科" if !lookback.department.include?("学科") %>
+        </p>
+      </div>
+      </a>
+      <div class="lookback-card-btn-area">
+        <%= link_to edit_lookback_path(lookback.id), class: "lookback-card-btn lookback-card-edit-btn d-block", data: {"turbolinks" => false} do%>
+          編集<i class="fas fa-pen"></i>
+        <% end %>
+        <%= link_to lookback, method: :delete, class: "lookback-card-btn lookback-card-destroy-btn d-block", data: { confirm: "本当に削除しますか?"} do%>
+          削除<i class="fas fa-trash"></i>
+        <% end %>
+      </div>
   </div>
+<% end %>

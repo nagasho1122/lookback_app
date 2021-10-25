@@ -1099,6 +1099,18 @@ p {
 
 
 
+/* --------------------------------
+ * lookback index
+ * -------------------------------- */
+ 
+ .lookback-index-title{
+   border-bottom: 2px solid $main-color;
+   margin: 20px 20px 60px 20px;
+   padding-bottom: 20px;
+   font-size: 3.2em;
+ }
+
+
 /* miscellaneous */
 .debug_dump {
   clear: both;

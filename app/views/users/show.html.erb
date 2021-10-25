@@ -32,8 +32,27 @@
         </div>
       </div>
       <div id="user_home-right" class="col-lg-8">
-        <%= render "shared/lookback_index" %>
-        <%= render "shared/review_index" %>
+        <h1 class="home-box-title">振り返り</h1>
+        <div id="lookbacks-box">
+          <%= render "shared/lookback_index" %>
+          <div class="detail-jamp-btn-box">
+            <%= link_to lookbacks_path, class: "detail-jamp-btn", data: {"turbolinks" => false} do%>
+              <p class="detail-jamp-btn-word d-inline">振り返り一覧</p>
+              <i class="fas fa-caret-right d-inline"></i>
+            <% end %>
+          </div>
+        </div>
+        <div id="reviews-box">
+          <h1 class="home-box-title home-box-title-review">Todoふせん</h1>
+          <%= render "shared/review_index" %>
+          <div class="detail-jamp-btn-box-review">
+            <%= link_to reviews_path, class: "detail-jamp-btn", data: {"turbolinks" => false} do%>
+              <p class="detail-jamp-btn-word d-inline">Todoふせん一覧</p>
+              <i class="fas fa-caret-right d-inline"></i>
+            <% end %>
+          </div>
+        </div>
+        </div>
       </div>
         
       </div>
