@@ -32,7 +32,7 @@ class ReviewTest < ActiveSupport::TestCase
     @review.content = "a" * 51
   end
   
-  test "order should be most recent first" do
-   assert_equal reviews(:most_recent), Review.first
+  test "order should be most late first" do
+   assert_equal reviews(:most_late), Review.first
   end
 end

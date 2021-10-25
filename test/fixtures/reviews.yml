@@ -13,7 +13,13 @@ two:
   subject: one
 
 most_recent:
-  content: "問題集1周"
+  content: "問題集2周"
   deadline_at: <%= Time.zone.now %>
+  user: example2
+  subject: two
+  
+most_late:
+  content: "問題集3周"
+  deadline_at: <%=  150.minutes.ago %>
   user: example2
   subject: two
