@@ -221,7 +221,7 @@ p {
   }
   to {
     opacity: 0;
-	transform: translateY(-60px);
+	transform: translateY(-100px);
   }
 }
 
@@ -233,7 +233,7 @@ p {
 @keyframes DownAnime{
   from {
   	opacity: 0;
-	transform: translateY(-60px);
+	transform: translateY(-100px);
   }
   to {
   	opacity: 1;

@@ -33,7 +33,7 @@
           var elemTop = 130;//#area-2の位置まできたら
         	var scroll = $(window).scrollTop();
           //ヘッダーの出し入れをする
-          if(scroll == beforePos) {
+          if(scroll <= elemTop) {
       		//IE11対策で処理を入れない
           }else if(elemTop > scroll || 0 > scroll - beforePos){
       		//ヘッダーが上から出現する

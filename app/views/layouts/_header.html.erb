@@ -1,13 +1,13 @@
 <header id="header">
       <a href = <%= root_path %> class="logo-box" data-turbolinks="false">
         <% if @logo_color_red %>
-          <img class="icon-image DownMove header-action" id="logo" src="/assets/lookback_logo_white">
+          <img class="icon-image header-action" id="logo" src="/assets/lookback_logo_white">
         <% else %>
-          <img class="icon-image DownMove header-action" id="logo" src="/assets/lookback_logo_red1">
+          <img class="icon-image header-action" id="logo" src="/assets/lookback_logo_red1">
         <% end %>
       </a>
-      <button class="title-bars bars DownMove header-action"><i class="fas fa-bars"></i></button>
-        <ul class="nav header-nav DownMove header-action" >
+      <button class="title-bars bars header-action"><i class="fas fa-bars"></i></button>
+        <ul class="nav header-nav header-action" >
           <% if current_user %>
             <li class="nav-item"><%= image_tag current_user.image, id: "user_image"%></li>
             <li class="nav-item left-border" id="bar-only"><%= link_to "ホーム", root_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
