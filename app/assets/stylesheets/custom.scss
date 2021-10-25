@@ -1096,12 +1096,16 @@ p {
    margin : -10px auto 0 auto;
    text-align: right;
  }
-
+ 
 
 
 /* --------------------------------
  * lookback index
  * -------------------------------- */
+ 
+ .lookback-index-box{
+   margin: 0 10%;
+ }
  
  .lookback-index-title{
    border-bottom: 2px solid $main-color;
@@ -1109,7 +1113,54 @@ p {
    padding-bottom: 20px;
    font-size: 3.2em;
  }
+ 
+ .pagination-box{
+   padding: 50px 0 10px 0;
+   position: relative;
+ }
 
+
+/* --------------------------------
+ * pagination
+ * -------------------------------- */
+ 
+ .pagination{
+   position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+ }
+ /*ページネーション自体のデザイン*/
+.pagination>div>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 25px;
+  margin-right: 3px;
+}
+
+.pagination>div>li{
+  vertical-align: middle;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>div>.active>.page-link {     
+  background: #07CC51;     /*背景の色を変える*/
+  border-radius: 50%;     /*角を丸くする*/
+  &:hover{
+    color: white;
+  }
+}
+
+/*ホバー時のデザイン*/
+.pagination>div>li>.page-link:hover {        
+  border-radius: 50%;    /*角を丸くする*/
+  color: $sub-accents-color;
+}
 
 /* miscellaneous */
 .debug_dump {

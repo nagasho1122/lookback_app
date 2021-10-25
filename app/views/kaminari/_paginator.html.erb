@@ -1,0 +1,29 @@
+<%= paginator.render do %>
+  <nav>
+    <ul class="pagination">
+      <div class="page-not-number">
+        <%= first_page_tag unless current_page.first? %>
+      </div>
+      <div class="page-not-number">
+        <%= prev_page_tag unless current_page.first? %>
+      </div>
+      <% each_page do |page| %>
+        <% if page.left_outer? || page.right_outer? || page.inside_window? %>
+          <div class="page-number">
+            <%= page_tag page %>
+          </div>
+        <% elsif !page.was_truncated? -%>
+          <div class="page-not-number">
+            <%= gap_tag %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="page-not-number">
+        <%= next_page_tag unless current_page.last? %>
+      </div>
+      <div class="page-not-number">
+        <%= last_page_tag unless current_page.last? %>
+      <div class="page-not-number">
+    </ul>
+  </nav>
+<% end %>
