@@ -946,6 +946,12 @@ p {
    text-align: left;
  }
  
+ .home-box-title-review{
+  letter-spacing: 0.05em;
+  font-size: 3em;
+}
+
+ 
  .detail-jamp-btn-box{
    width: 600px;
    margin : -15px auto 30px auto;
@@ -966,6 +972,10 @@ p {
  
  .detail-jamp-btn-word{
    padding-right: 10px;
+ }
+ 
+ .detail-jamp-btn-word.english{
+  letter-spacing: 0.08em;
  }
  
  #lookbacks-box{
@@ -1121,9 +1131,6 @@ p {
   margin: 0 20px;
 }
 
-.home-box-title-review{
-  letter-spacing: 0.03em;
-}
 
 .detail-jamp-btn-box-review{
    padding-right: 20px;
@@ -1146,6 +1153,7 @@ p {
    margin: 20px 20px 60px 20px;
    padding-bottom: 20px;
    font-size: 3.2em;
+   color: $main-color;
  }
  
  .pagination-box{
@@ -1209,6 +1217,7 @@ p {
    margin: 20px 20px 60px 20px;
    padding-bottom: 20px;
    font-size: 3.2em;
+   color: $main-color;
  }
  
  .pagination-box{

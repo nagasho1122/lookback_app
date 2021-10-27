@@ -12,6 +12,8 @@
             <li class="nav-item"><%= image_tag current_user.image, id: "user_image"%></li>
             <li class="nav-item left-border" id="bar-only"><%= link_to "ホーム", root_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
             <li class="nav-item left-border"><%= link_to "マイページ", user_path(current_user.id) ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
+            <li class="nav-item left-border"><%= link_to "振り返り一覧", lookbacks_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
+            <li class="nav-item left-border"><%= link_to "Todo一覧", reviews_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
             <li class="nav-item left-border"><%= link_to "ログアウト", log_out_path, class: "nav-link underbar-action" %></li>
             <li class="nav-item big-nav-item"><%= link_to "振り返りを書く", new_lookback_path ,class: "nav-link big-nav-link", data: {"turbolinks" => false} %></li>
           <% else  %>
