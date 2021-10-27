@@ -31,15 +31,23 @@ class LookbacksController < ApplicationController
   end
   
   def edit
+    @lookback = Lookback.find(params[:id])
   end
   
   def update
+    @lookback = Lookback.find(params[:id])
+    if @lookback.update(lookback_params)
+      flash[:success] = "振り返りを更新しました。。"
+      redirect_to lookbacks_path
+    else
+      render "edit"
+    end
   end
   
   private
     def lookback_params
       params.require(:lookback).permit(:university, :faculty, :department,
-                    :all_text, :year, :subjects_attributes => [ :subject, :_destroy, :lookback_details_attributes =>  [:id, :unit,
+                    :all_text, :year, :subjects_attributes => [ :id, :subject, :_destroy, :lookback_details_attributes =>  [:id, :unit,
                     :number, :text, :_destroy], :reviews_attributes => [:id, 
                     :user_id, :content, :deadline_at, :_destroy]])
     end

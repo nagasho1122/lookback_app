@@ -1,0 +1,122 @@
+<div class="container normal-page-container">
+  <%= form_with(model: @lookback, local: true ) do |f| %>
+  
+    <div class="form-lookback">
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <div class="school-inf-box">
+        <div class="group">
+          <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, value: 2021, 
+          class: 'inputMaterial', id: "lookback_year",  :required => true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <%= f.label :year, "年度", class: "label" %>
+        </div>
+        
+        <div class="group">
+          <%= f.text_field :university, class: 'inputMaterial university-form', :required => true %>
+          <span class="highlight"></span>
+          <span class="bar university-bar"></span>
+          <%= f.label :university, "大学名", class: "label" %>
+        </div>
+        
+        <div class="group d-inline-block">
+          <%= f.text_field :faculty, class: 'inputMaterial faculty-form', :required => true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <%= f.label :faculty, "学部", class: "label" %>
+        </div>
+        
+        <div class="group d-inline-block department-group">
+          <%= f.text_field :department, class: 'inputMaterial department-form', :required => true %>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <%= f.label :department, "学科" , class: "label"%>
+        </div>
+      </div>
+      
+      <div class="subject-inf-box">
+        <div class="add-lookback_detail">
+          <%= f.fields_for :subjects do |t| %>
+            <%= render "lookbacks/edit_subject_fields", f: t %>
+          <% end %>
+        </div>
+        
+        <div id="subject-association-insertion-point"></div>
+      
+        <div class="form-add-btn">
+          <%= link_to_add_association f, :subjects, class: "add-question-btn d-block",
+            data: {association_insertion_node: '#subject-association-insertion-point',
+          association_insertion_method: 'before'} do %>
+            <i class="fas fa-plus d-inline"></i>
+            <p class="add-subject-btn-word d-inline-block">科目を追加</p>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="group">
+        <%= f.text_area :all_text, class: 'inputMaterial-all_text all_text-form', :required => true %>
+        <span class="highlight"></span>
+        <%= f.label :all_text, "全体振り返り", class: "label label-all_text", :required => true %>
+      </div>
+      
+      
+      
+      <div class="actions">
+        <%= f.submit "記録する", class: "submit-btn"%>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(document).ready(function() {
+    var num = 0
+    while($("#detail-association-insertion-point-0").length){
+      num+=1
+      var new_detail_id = `detail-association-insertion-point-${num}`
+      var new_review_id = `review-association-insertion-point-${num}`
+      $('#detail-association-insertion-point-0').attr('id', new_detail_id);
+      $('#review-association-insertion-point-0').attr('id', new_review_id);
+      $('#detail-add-btn-0').attr("data-association-insertion-node",`#${new_detail_id}`);
+      $('#detail-add-btn-0').attr("id", `detail-add-btn-${num}`);
+      $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
+      $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
+      $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
+      $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
+      console.log("change")
+    }
+    $('#subject-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
+      .on('cocoon:before-insert', function() {
+        num += 1
+      })
+      .on('cocoon:after-insert', function() {
+        var new_detail_id = `detail-association-insertion-point-${num}`
+        var new_review_id = `review-association-insertion-point-${num}`
+        $('#detail-association-insertion-point-0').attr('id', new_detail_id);
+        $('#review-association-insertion-point-0').attr('id', new_review_id);
+        $('#detail-add-btn-0').attr("data-association-insertion-node",`#${new_detail_id}`);
+        $('#detail-add-btn-0').attr("id", `detail-add-btn-${num}`);
+        $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
+        $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
+        $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
+        $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
+      })
+      .on("cocoon:before-remove", function() {
+        // フィールド削除前の処理
+      })
+      .on("cocoon:after-remove", function() {
+        // フィールド削除後の処理
+      });
+  })
+  $(function(){
+    // 大問を自動的に入力するコード。一番最後の大問に1を足した数が代入される。
+    $(document).on("click", ".add-content-btn", function(){
+      add_num = Number($(this).parent().next("div").children('div').children('div').children('div').children('div').children('.number-word-right').eq(-2).attr("value"));
+      if (!add_num){ add_num = 0 }
+      add_num += 1
+      $(this).parent().next("div").children('div').children('div').children('div').children('div').children('.number-word-right').eq(-1).attr("value", add_num);
+    });
+  });
+
+</script>
