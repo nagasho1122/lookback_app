@@ -45,8 +45,14 @@ class ReviewsController < ApplicationController
     end
     @subjects = @subjects.uniq
     @subjects.each do |subject|
-      instance_variable_set("@reviews_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject))
+      instance_variable_set("@reviewsNotNear_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where("deadline_at > ?", after_three_days))
+      instance_variable_set("@reviewsNear_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where(deadline_at:  DateTime.now..after_three_days))
+      instance_variable_set("@reviewsExpire_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where("deadline_at < ?", today))
     end
+    @subjects.push("その他")
+    instance_variable_set("@reviewsNotNear_その他", current_user.reviews.where(subject_id: nil).where("deadline_at > ?", after_three_days))
+    instance_variable_set("@reviewsNear_その他", current_user.reviews.where(subject_id: nil).where(deadline_at:  DateTime.now..after_three_days))
+    instance_variable_set("@reviewsExpire_その他", current_user.reviews.where(subject_id: nil).where("deadline_at < ?", today))
   end
   
   private

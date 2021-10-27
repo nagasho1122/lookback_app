@@ -1226,14 +1226,13 @@ p {
 
 
 #myTab .nav-link.active {
-  background-color:#e2e2e2;
-  border-bottom:#e2e2e2;
+  background-color: $accents-color;
+  border-bottom:$accents-color;
   font-weight: bold;
 }
 
 .tab-pane.active .tab-pane-header {
   padding:2rem;
-  background-color:#e2e2e2;
   border-top-right-radius: .5rem;
   border-top-left-radius: .5rem;
   margin-bottom:1rem;
@@ -1241,6 +1240,10 @@ p {
 
 .tab-pane:first-child .tab-pane-header {
   border-top-left-radius: 0;
+}
+.tab-pane-header{
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 
