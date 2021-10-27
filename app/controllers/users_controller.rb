@@ -19,16 +19,5 @@ class UsersController < ApplicationController
     @reviewsNear = @user.reviews.where(deadline_at:  DateTime.now..after_three_days).limit(4)
     #復習リストの期限切れのものを最大で3個取得
     @reviewsExpire = @user.reviews.where("deadline_at < ?", today).limit(4)
-    #復習リストの科目をリストで取得
-    @subjects = []
-    @user.lookbacks.all.eager_load(:subjects).all.each do |lookback|
-      # usersテーブルから名前を取得し、カンマ区切りで結合する
-      if !lookback.subjects.empty?
-        lookback.subjects.pluck(:subject).each do |subject|
-          @subjects.push(subject)
-        end
-      end
-    end
-    @subjects = @subjects.uniq
   end
 end

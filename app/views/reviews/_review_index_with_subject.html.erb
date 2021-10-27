@@ -1,5 +1,5 @@
 <div class="review-cards-box-all">
-  <% [@reviewsNear, @reviewsNotNear, @reviewsExpire].zip(["near-three-days", "", "expired"]) do |objects, effect| %>
+  <% [instance_variable_get("@reviews_#{subject}")].zip(["near-three-days"]) do |objects, effect| %>
     <% objects.each do |review| %>
       <div class="review-card-box">
           <div class= "review-tape"></div>
