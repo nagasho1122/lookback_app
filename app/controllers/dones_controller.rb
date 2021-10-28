@@ -4,12 +4,8 @@ class DonesController < ApplicationController
   
   def create
     @done = current_user.dones.build(done_params)
-    if @done.save
-      flash[:success] = "Todoを達成しました。"
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    @done.save
+    @review_id = done_params[:review_id]
   end
   
   def destroy
