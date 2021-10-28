@@ -19,5 +19,6 @@ class UsersController < ApplicationController
     @reviewsNear = @user.reviews.where(deadline_at:  DateTime.now..after_three_days).limit(4)
     #復習リストの期限切れのものを最大で3個取得
     @reviewsExpire = @user.reviews.where("deadline_at < ?", today).limit(4)
+    @done = @user.dones.build
   end
 end

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :lookbacks
   resources :lookback_details, only: [:create, :destroy, :update]
   resources :reviews, only: [:index, :create, :destroy, :update]
-  resources :subject, only: [:create, :destroy, :update]
+  resources :subjects, only: [:create, :destroy, :update]
+  resources :dones, only: [:create, :index, :destroy]
 end

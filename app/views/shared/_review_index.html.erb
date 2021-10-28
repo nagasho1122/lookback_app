@@ -12,8 +12,11 @@
                     <%= review.deadline_at.strftime("%Y年%m月%d日") %>
                   </div>
                   <p class="deadline-word d-inline">まで</p>
-                  <%= link_to review_path(review), method: :delete, :class => 'review-done-button', remote: true , data: {"turbolinks" => false} do %>
-                    <i class="fas fa-check"></i>
+                  <%= form_with model: @done, url: dones_path, method: :post, remote: true do |f| %>
+                    <%= f.hidden_field :review_id, :value => review.id %>
+                    <%= button_tag :type => "submit", :class => "review-done-button", data: {"turbolinks" => false} do %>
+                      <i class="fas fa-check"></i>
+                    <% end %>
                   <% end %>
                   <%= link_to review_path(review), method: :delete, :class => 'review-delete-button', remote: true , data: {"turbolinks" => false} do %>
                     <i class="fas fa-trash"></i>

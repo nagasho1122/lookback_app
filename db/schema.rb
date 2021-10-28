@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_052427) do
+ActiveRecord::Schema.define(version: 2021_10_28_052021) do
+
+  create_table "dones", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "review_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id"], name: "index_dones_on_review_id"
+    t.index ["user_id"], name: "index_dones_on_user_id"
+  end
 
   create_table "lookback_details", force: :cascade do |t|
     t.integer "number"

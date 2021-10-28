@@ -1150,6 +1150,10 @@ p {
    display: block;
    text-align: center;
    border-radius: 50%;
+   border: none;
+   &:focus{
+     outline: none;
+   }
    .fas{
      line-height: 30px;
    }
