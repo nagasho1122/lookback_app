@@ -1,7 +1,7 @@
 <div class="review-cards-box-all">
   <% [@reviewsNear, @reviewsNotNear, @reviewsExpire].zip(["near-three-days", "", "expired"]) do |objects, effect| %>
     <% objects.each do |review| %>
-      <div class="review-card-box">
+      <div class="review-card-box" id="review-card-<%= review.id %>">
           <div class= "review-tape"></div>
           <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page <%= effect if !effect.empty? %> review-click-event" data-review-id="<%= review.id %>" >
               <div class="review-text review-text-user <%= effect if !effect.empty? %>">
@@ -12,6 +12,12 @@
                     <%= review.deadline_at.strftime("%Y年%m月%d日") %>
                   </div>
                   <p class="deadline-word d-inline">まで</p>
+                  <%= link_to review_path(review), method: :delete, :class => 'review-done-button', remote: true , data: {"turbolinks" => false} do %>
+                    <i class="fas fa-check"></i>
+                  <% end %>
+                  <%= link_to review_path(review), method: :delete, :class => 'review-delete-button', remote: true , data: {"turbolinks" => false} do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
               </div>
           </div>
           <p>&nbsp;</p>
@@ -19,34 +25,5 @@
     <% end %>
   <% end %>
 </div>
-<script>
-   $(document).ready(function() {
- // executes when HTML-Document is loaded and DOM is ready
-    $('.review-click-event').dblclick(function() {
-      var review_id = $(this).attr('data-review-id')
-      console.log(review_id);
-      $.ajax({
-        url: `/reviews/${review_id}`,  // リクエストを送信するURLを指定
-        type: "DELETE",  // HTTPメソッドを指定（デフォルトはGET）
-      })
-    });
-    
-    /// 長押しを検知する閾値
-    var LONGPRESS = 800;
-    /// 長押し実行タイマーのID
-    var timerId;
-     
-    /// 長押し・ロングタップを検知する
-    $('.review-click-event').on("mousedown touchstart",function(){
-      timerId = setTimeout(function(){
-        /// 長押し時（Longpress）のコード
-        alert("ドドブランゴ")
-      }, LONGPRESS);
-    }).on("mouseup mouseleave touchend",function(){
-      clearTimeout(timerId);
-    });
-  
-  // document ready  
-  });
-</script>
+
   

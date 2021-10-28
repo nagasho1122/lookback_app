@@ -44,7 +44,9 @@
         </div>
         <div id="reviews-box">
           <h1 class="home-box-title home-box-title-review">Todo</h1>
-          <%= render "shared/review_index" %>
+          <div id="render-reviews-box">
+            <%= render "shared/review_index" %>
+          </div>
           <div class="detail-jamp-btn-box-review">
             <%= link_to reviews_path, class: "detail-jamp-btn", data: {"turbolinks" => false} do%>
               <p class="detail-jamp-btn-word d-inline english">Todo一覧</p>
@@ -54,10 +56,9 @@
         </div>
         </div>
       </div>
-        
       </div>
     </div>
   </div>
-  
 </div>
+
 

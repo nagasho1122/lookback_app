@@ -1138,7 +1138,37 @@ p {
    text-align: right;
  }
  
-
+ .review-card-box{
+   position: relative;
+ }
+ 
+ .review-done-button, .review-delete-button{
+   background: $main-color;
+   color: white;
+   height: 30px;
+   width: 30px;
+   display: block;
+   text-align: center;
+   border-radius: 50%;
+   .fas{
+     line-height: 30px;
+   }
+   &:hover{
+     color: $accents-color;
+   }
+ }
+ 
+ .review-done-button{
+   position: absolute;
+   top: 90px;
+   left: 10px;
+ }
+ 
+.review-delete-button{
+  position: absolute;
+  top: 90px;
+  left: 45px;
+}
 
 /* --------------------------------
  * lookback index

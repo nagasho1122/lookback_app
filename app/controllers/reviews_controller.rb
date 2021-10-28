@@ -12,9 +12,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    Review.find(params[:id]).destroy
-    flash[:success] = "Todoを削除しました"
-    redirect_to root_url
+    @review = Review.find(params[:id])
+    @review_id = @review.id
+    @review.destroy
   end
 
   def update
