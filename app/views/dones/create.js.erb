@@ -1,1 +1,5 @@
 $(".review-card-<%= @review_id %>").fadeOut(300);
+if($('.done-field').length){
+  $('#done-tab-field').empty();
+  $('#done-tab-field').prepend("<%= j(render 'reviews/review_index_with_done', object: @done_reviews ) %>");
+}

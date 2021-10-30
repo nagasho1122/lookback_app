@@ -1,0 +1,23 @@
+<div class="review-cards-box-all done-field">
+  <% object.each do |review| %>
+    <div class="review-card-box review-card-<%= review.id %>">
+        <div class= "review-tape"></div>
+        <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page review-click-event">
+            <div class="review-text review-text-user">
+              <%= review.content %>
+            </div>
+            <div class="deadline-box deadline-box-user">
+                <div class="deadline-text d-inline deadline-text-user-show" >
+                  <%= review.deadline_at.strftime("%Y年%m月%d日") %>
+                </div>
+                <p class="deadline-word d-inline">まで</p>
+                <%= link_to review_path(review), method: :delete, :class => 'review-delete-button done-page-btn', remote: true , data: {"turbolinks" => false} do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+  <% end %>
+</div>
+  

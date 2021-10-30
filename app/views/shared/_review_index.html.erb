@@ -13,7 +13,7 @@
                   </div>
                   <p class="deadline-word d-inline">まで</p>
                   <%= form_with model: @done, url: dones_path, method: :post, local: false do |f| %>
-                    <%= f.hidden_field :review_id, :value => review.id %>
+                    <%= f.hidden_field :done_review_id, :value => review.id %>
                     <%= button_tag :type => "submit", :class => "review-done-button", data: {"turbolinks" => false} do %>
                       <i class="fas fa-check"></i>
                     <% end %>

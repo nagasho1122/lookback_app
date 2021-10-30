@@ -21,7 +21,13 @@
     <% @subjects.each_with_index do |subject, num| %>
       <div class="tab-pane fade" id="tab<%= num %>" role="tabpanel" aria-labelledby="2-tab">
         <div class="tab-pane-header">
-           <%= render "reviews/review_index_with_subject", subject: subject %>
+          <% if subject == "達成済み" %>
+            <div id = "done-tab-field">
+              <%= render "reviews/review_index_with_done", object: @done_reviews %>
+            </div>
+          <% else %>
+            <%= render "reviews/review_index_with_subject", subject: subject %>
+          <% end %>
         </div>
   
       </div>
