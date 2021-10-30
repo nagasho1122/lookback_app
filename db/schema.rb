@@ -14,10 +14,11 @@ ActiveRecord::Schema.define(version: 2021_10_28_052021) do
 
   create_table "dones", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "review_id"
+    t.integer "done_review_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_dones_on_review_id"
+    t.index ["done_review_id"], name: "index_dones_on_done_review_id"
+    t.index ["user_id", "done_review_id"], name: "index_dones_on_user_id_and_done_review_id", unique: true
     t.index ["user_id"], name: "index_dones_on_user_id"
   end
 

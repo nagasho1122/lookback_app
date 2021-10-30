@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :lookbacks, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :dones, dependent: :destroy
+  has_many :done_review, through: :dones
   validates :name, presence: true
   validates :email, presence: true
   

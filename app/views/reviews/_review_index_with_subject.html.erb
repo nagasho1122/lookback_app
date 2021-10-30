@@ -1,7 +1,7 @@
 <div class="review-cards-box-all">
   <% [instance_variable_get("@reviewsNear_#{subject}"), instance_variable_get("@reviewsNotNear_#{subject}"), instance_variable_get("@reviewsExpire_#{subject}")].zip(["near-three-days", "", "expired"]) do |objects, effect| %>
     <% objects.each do |review| %>
-      <div class="review-card-box">
+      <div class="review-card-box review-card-<%= review.id %>">
           <div class= "review-tape"></div>
           <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page <%= effect if !effect.empty? %> review-click-event">
               <div class="review-text review-text-user <%= effect if !effect.empty? %>">
