@@ -20,5 +20,6 @@ module LookbackApp
     # config.eager_load_paths << Rails.root.join("extras")
     # 認証トークンをremoteフォームに埋め込む
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.web_console.whitelisted_ips = '126.3.6.107'
   end
 end

@@ -63,7 +63,7 @@
       
       
       <div class="actions">
-        <%= f.submit "更新する", class: "submit-btn lookbackedit-submit-btn", data:{confirm: "a"}%>
+        <%= f.submit "更新する", class: "submit-btn lookbackedit-submit-btn" %>
         <i class="fas fa-chevron-right"></i>
       </div>
     </div>
@@ -126,43 +126,6 @@
       $(this).parent().next("div").children('div').children('div').children('div').children('div').children('.number-word-right').eq(-1).attr("value", add_num);
     });
       
-      
-    $(document).on("click", ".lookbackedit-submit-btn", function(){
-      delete_subjects = $(".add-lookback_detail").children().filter(":hidden").find(".subject-card-top").find("input[type=hidden]")
-        delete_subjects.each( function() {
-          // 削除したsubjectのインデックス番号をリストに格納
-          delete_subjects_num.push(Number($(this).attr('id').slice(29,30)))
-        })
-      console.log(delete_subjects_num)
-      delete_details = $(".flex-container-detail").children().filter(":hidden").find(".lookback-detail-card-top").find("input[type=hidden]")
-        delete_details.each( function() {
-          // 削除したlookback_detailのインデックス番号を親要素のsubjectのインデックス番号と共にリストに格納
-          delete_lookback_details_num.push([Number($(this).attr('id').slice(29,30)), Number($(this).attr('id').slice(59,60))])
-        })
-      //console.log(delete_lookback_details_num)
-      
-      delete_reviews = $(".flex-container-review").children().filter(":hidden").find(".review-card-box").find("input[type=hidden]").eq(1)
-        delete_reviews.each( function() {
-          // 削除したreviewのインデックス番号を親要素のsubjectのインデックス番号と共にリストに格納
-          delete_reviews_num.push([Number($(this).attr('id').slice(29,30)), Number($(this).attr('id').slice(50,51))])
-        })
-      //console.log(delete_reviews_num)
-      var subjects = <%= @lookback_subject_ids  %>
-      $.each(delete_subjects_num, function(element) {
-         var id = subjects[element]
-        //subjectの削除
-          $.ajax({
-          url: `/subjects/${id}`,
-          type: "DELETE"
-        })
-        .done(function(){
-          console.log($(".subject-inf-box").children().children().filter(":hidden").filter("div").find("input"))
-          $(".subject-inf-box").children().children().filter(":hidden").filter("div").find("input").attr("disabled","disabled")
-          $(".subject-inf-box").children().children().filter(":hidden").filter("div").next().attr("disabled","disabled")
-        })
-      })
-      
-    });
   })
 
 </script>

@@ -1,7 +1,7 @@
 class Lookback < ApplicationRecord
   belongs_to :user
   has_many :subjects, dependent: :destroy, inverse_of: :lookback
-  accepts_nested_attributes_for :subjects
+  accepts_nested_attributes_for :subjects, :reject_if => :all_blank, allow_destroy: true
   default_scope -> {order(created_at: :desc)}
   validates :user_id, presence: true
   validates :university, presence: true, length: {maximum: 30}
