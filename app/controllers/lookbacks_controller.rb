@@ -32,6 +32,7 @@ class LookbacksController < ApplicationController
   
   def edit
     @lookback = Lookback.find(params[:id])
+    @lookback_subject_ids = @lookback.subjects.all.map(&:id)
   end
   
   def update
