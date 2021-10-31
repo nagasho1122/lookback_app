@@ -44,7 +44,7 @@
         
         <div id="subject-association-insertion-point"></div>
       
-        <div class="form-add-btn">
+        <div class="form-add-btn links">
           <%= link_to_add_association f, :subjects, class: "add-question-btn d-block",
             data: {association_insertion_node: '#subject-association-insertion-point',
           association_insertion_method: 'before'} do %>
@@ -63,7 +63,7 @@
       
       
       <div class="actions">
-        <%= f.submit "記録する", class: "submit-btn"%>
+        <%= f.submit "更新する", class: "submit-btn lookbackedit-submit-btn"%>
         <i class="fas fa-chevron-right"></i>
       </div>
     </div>
@@ -84,7 +84,6 @@
       $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
       $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
       $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
-      console.log("change")
     }
     $('#subject-association-insertion-point') // ここでのIDはフィールドの挿入開始位置に記載したID
       .on('cocoon:before-insert', function() {
@@ -101,15 +100,18 @@
         $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
         $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
         $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
-      })
-      .on("cocoon:before-remove", function() {
-        // フィールド削除前の処理
+      });
+      $('.add-lookback_detail')
+      .on('cocoon:before-remove', function(event) {
+      // 削除ボタンを押すと、でアラートメッセージで確認が入る
+      var confirmation = confirm('記録を削除します。よろしいですか？');
+        if( !confirmation ){
+          event.preventDefault();
+        }
       })
       .on("cocoon:after-remove", function() {
         // フィールド削除後の処理
       });
-  })
-  $(function(){
     // 大問を自動的に入力するコード。一番最後の大問に1を足した数が代入される。
     $(document).on("click", ".add-content-btn", function(){
       add_num = Number($(this).parent().next("div").children('div').children('div').children('div').children('div').children('.number-word-right').eq(-2).attr("value"));
@@ -117,6 +119,6 @@
       add_num += 1
       $(this).parent().next("div").children('div').children('div').children('div').children('div').children('.number-word-right').eq(-1).attr("value", add_num);
     });
-  });
+  })
 
 </script>
