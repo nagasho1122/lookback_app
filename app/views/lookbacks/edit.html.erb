@@ -36,11 +36,9 @@
       </div>
       
       <div class="subject-inf-box">
-        <div class="add-lookback_detail">
-          <%= f.fields_for :subjects do |t| %>
-            <%= render "lookbacks/edit_subject_fields", f: t %>
-          <% end %>
-        </div>
+        <%= f.fields_for :subjects do |t| %>
+          <%= render "lookbacks/edit_subject_fields", f: t %>
+        <% end %>
         
         <div id="subject-association-insertion-point"></div>
       
@@ -106,13 +104,17 @@
     var delete_lookback_details_num = []
     var delete_reviews_num = []
     
-    $('.add-lookback_detail')
+    $('.subject-inf-box')
       .on('cocoon:before-remove', function(event) {
         // 削除ボタンを押すと、でアラートメッセージで確認が入る
         var confirmation = confirm('記録を削除します。よろしいですか？');
           if( !confirmation ){
             event.preventDefault();
           }
+      })
+      .on('cocoon:before-remove',".subject-card-bottom", function(event) {
+        //subject BOXの子要素にはアラートが出ないようにする。
+        event.stopPropagation();
       })
       .on("cocoon:after-remove", function() {
         // フィールド削除後の処理。削除したsubjectの要素を取得
