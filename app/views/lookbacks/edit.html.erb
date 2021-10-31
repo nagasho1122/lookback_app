@@ -103,6 +103,7 @@
       });
       
     var delete_subjects = []
+    var delete_subjects_num = []
     
     $('.add-lookback_detail')
       .on('cocoon:before-remove', function(event) {
@@ -115,7 +116,12 @@
       .on("cocoon:after-remove", function() {
         // フィールド削除後の処理。削除したsubjectの要素を取得
         after_subjects = $(this).children().filter(":hidden").find(".subject-card-top").find("input[type=hidden]")
-        console.log(after_subjects)
+        after_subjects.each( function() {
+          // 削除したsubjectのインデックス番号をリストに格納
+          delete_subjects_num.push(Number($(this).attr('id').slice(29,30)));
+          console.log(delete_subjects_num)
+        })
+        
       });
     
     // 大問を自動的に入力するコード。一番最後の大問に1を足した数が代入される。
