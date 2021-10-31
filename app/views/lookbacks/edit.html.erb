@@ -112,12 +112,13 @@
             event.preventDefault();
           }
       })
-      .on('cocoon:before-remove',".subject-card-bottom", function(event) {
+      .on('cocoon:before-remove',".subject-card-bottom", function(event, task) {
+        //nested-fieldsの親要素に以下の値を指定。
+        $(this).find(".flex-container-detail").data('remove-timeout', 300);
+        $(this).find(".flex-container-review").data('remove-timeout', 300);
+        task.fadeOut(300);
         //subject BOXの子要素にはアラートが出ないようにする。
         event.stopPropagation();
-      })
-      .on("cocoon:after-remove", function() {
-        // フィールド削除後の処理。削除したsubjectの要素を取得
       });
     
      // 大問を自動的に入力するコード。一番最後の大問に1を足した数が代入される。

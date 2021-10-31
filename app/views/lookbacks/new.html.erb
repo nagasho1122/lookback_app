@@ -36,12 +36,10 @@
       </div>
       
       <div class="subject-inf-box">
-        <div class="add-lookback_detail">
-          <%= f.fields_for :subjects do |t| %>
-            <%= render "lookbacks/subject_fields", f: t %>
-          <% end %>
-        </div>
-        
+        <%= f.fields_for :subjects do |t| %>
+          <%= render "lookbacks/subject_fields", f: t %>
+        <% end %>
+
         <div id="subject-association-insertion-point"></div>
       
         <div class="form-add-btn">
@@ -87,7 +85,7 @@
       $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
       $('#review-add-btn-0').attr("data-association-insertion-node",`#${new_review_id}`);
       $('#review-add-btn-0').attr("id", `review-add-btn-${num}`);
-    })
+    });
     
     $('.subject-inf-box')
       .on('cocoon:before-remove', function(event) {
@@ -97,12 +95,13 @@
             event.preventDefault();
           }
       })
-      .on('cocoon:before-remove',".subject-card-bottom", function(event) {
+      .on('cocoon:before-remove',".subject-card-bottom", function(event, task) {
+        //nested-fieldsの親要素に以下の値を指定。
+        $(this).find(".flex-container-detail").data('remove-timeout', 300);
+        $(this).find(".flex-container-review").data('remove-timeout', 300);
+        task.fadeOut(300);
         //subject BOXの子要素にはアラートが出ないようにする。
         event.stopPropagation();
-      })
-      .on("cocoon:after-remove", function() {
-        // フィールド削除後の処理。削除したsubjectの要素を取得
       });
     // 大問を自動的に入力するコード
     $(document).on("click", ".add-content-btn", function(){
