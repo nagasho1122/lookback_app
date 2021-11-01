@@ -83,7 +83,7 @@ p {
 
 .normal-page-container{
    margin-top: 150px;
-   padding: 50px;
+   padding: 50px 15px;
    background-color: white;
    border-radius: 50px;
    box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.1);
@@ -133,7 +133,6 @@ p {
 .nav-link{
   height: 100%;
   line-height: 42px;
-  padding: 0;
   color: $main-black;
   position: relative;
   font-weight: bold;
