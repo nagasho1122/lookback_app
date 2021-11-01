@@ -1,0 +1,30 @@
+<div class="school-inf-box">
+    <div class="group">
+      <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, value: 2021, 
+      class: 'inputMaterial', id: "lookback_year",  :required => true %>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <%= f.label :year, "年度", class: "label" %>
+    </div>
+    
+    <div class="group">
+      <%= f.text_field :university, class: 'inputMaterial university-form', :required => true %>
+      <span class="highlight"></span>
+      <span class="bar university-bar"></span>
+      <%= f.label :university, "大学名", class: "label" %>
+    </div>
+    
+    <div class="group d-inline-block">
+      <%= f.text_field :faculty, class: 'inputMaterial faculty-form', :required => true %>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <%= f.label :faculty, "学部", class: "label" %>
+    </div>
+    
+    <div class="group d-inline-block department-group">
+      <%= f.text_field :department, class: 'inputMaterial department-form', :required => true %>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <%= f.label :department, "学科" , class: "label"%>
+    </div>
+  </div>

@@ -6,7 +6,13 @@
         <i class="far fa-trash-alt"></i>
       <% end %>
       <div class="form-lookback_detail">
-        <%= f.text_field :subject, class: 'subject-form font-awesome-solid-icon', placeholder: "科目を入力 \uf5ad" %>
+        <%= f.select :subject, [["英語", "英語"], ["国語", "国語"], ["数学", "数学"], 
+                                ["物理", "物理"], ["化学", "化学"], ["生物", "生物"], ["理科基礎", "理科基礎"],
+                                ["地学", "地学"], ["日本史", "日本史"], ["世界史", "世界史"], 
+                                ["地理", "地理"], ["倫理", "倫理"], ["政治・経済", "政治・経済"], 
+                                ["倫理、政治・経済", "倫理、政治・経済"], ["現代社会", "現代社会"],
+                                ["小論文", "小論文"],  ["簿記・会計", "簿記・会計"],
+                                ["情報関係基礎", "情報関係基礎"], ["外国語", "外国語"], ["その他", "その他"]], {include_blank: "科目を入力"}, {class: 'subject-form font-awesome-solid-icon'} %>
       </div>
       <%= link_to_add_association f, :lookback_details, class: "add-content-btn question-btn d-block", id: "detail-add-btn-0",
       data: {association_insertion_node: "#detail-association-insertion-point-0",
