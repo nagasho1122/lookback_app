@@ -9,6 +9,7 @@ gem 'aws-sdk-s3',              '1.46.0', require: false
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem "dotenv-rails"
 gem 'cocoon'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
