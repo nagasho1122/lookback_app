@@ -8,6 +8,5 @@ class CreateLookbackDetails < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :lookback_details, lookback_id
   end
 end
