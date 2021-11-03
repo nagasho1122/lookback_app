@@ -3,10 +3,10 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save
-      flash[:success] = "Todoを作成しました。"
+      flash[:success] = "Todoを作成しました"
       redirect_to  user_path(current_user)
     else
-      flash.now[:danger] = "Todoを作成に失敗しました。"
+      flash.now[:danger] = "Todoを作成に失敗しました"
       render user_path(current_user.id)
     end
   end

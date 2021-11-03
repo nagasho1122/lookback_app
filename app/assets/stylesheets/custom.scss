@@ -1290,8 +1290,30 @@ p {
 
 
 /* --------------------------------
- * review card action
+ * 
  * -------------------------------- */
+ 
+ /* --------------------------------
+ * alert
+ * -------------------------------- */
+ #alert{
+   position: fixed;
+   bottom: 50px;
+   left: 50px;
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   z-index: 10;
+   text-align: center;
+   display: table;
+   padding: 10px;
+ }
+ 
+ .alert-text{
+  font-size: 1.2em;
+  display: table-cell;
+  vertical-align: middle;
+ }
 
 
 /* miscellaneous */

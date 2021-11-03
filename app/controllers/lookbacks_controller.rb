@@ -10,8 +10,10 @@ class LookbacksController < ApplicationController
   def create
     @lookback = current_user.lookbacks.build(lookback_params)
     if @lookback.save
+      flash[:success] = "振り返りを作成しました"
       redirect_to user_path(current_user)
     else
+      flash[:danger] = "振り返りの作成に失敗しました"
       render new_lookback_path
     end
     
@@ -32,13 +34,12 @@ class LookbacksController < ApplicationController
   
   def edit
     @lookback = Lookback.find(params[:id])
-    @lookback_subject_ids = @lookback.subjects.all.map(&:id)
   end
   
   def update
     @lookback = Lookback.find(params[:id])
     if @lookback.update(lookback_params)
-      flash[:success] = "振り返りを更新しました。。"
+      flash[:success] = "振り返りを更新しました"
       redirect_to lookbacks_path
     else
       render "edit"
