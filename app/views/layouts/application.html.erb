@@ -22,7 +22,9 @@
       <% end %>
     </div>
     <%= render "layouts/header"%>
-    <%= yield %>
+    <div class="blur-area">
+      <%= yield %>
+    </div>
     <%= debug(params) if Rails.env.development? %>
     <script>
       $(function(){
@@ -61,6 +63,8 @@
         
         $(".openbtn").click(function () {
             $(this).toggleClass('active');
+            $("#nav-res").toggleClass('panelactive');
+            $(".blur-area").toggleClass('mainblur');
         });
       });
     </script>

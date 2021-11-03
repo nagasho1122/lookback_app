@@ -98,25 +98,15 @@ p {
    top: 36px;
    left: 30px;
    width: 320px;
-   z-index: 5;
+   z-index: 10;
  }
-.title-bars{
-  color: $main-color;
-  border: none;
-  z-index: 10;
-  position: fixed;
-  .fa-bars{
-    font-size: 50px;
+ 
+ @media screen and (max-width: 576px) {
+  #logo{
+    width: 70vw;
+    top: 15px;
+    left: 10px;
   }
-  .fa-times{
-    font-size: 50px;
-  }
-  &:hover{
-    color: $main-color;
-  }
-  top: 32px;
-  right: 16px;
-  display: none;
 }
 
 .header-nav{
@@ -1303,6 +1293,7 @@ p {
   height: 50px;
 	border-radius: 5px;
 	display: none;
+	z-index: 5;
 }
 
 .openbtn-home{
@@ -1376,6 +1367,90 @@ p {
   transform: translateY(0) rotate(-45deg);
 	top:5px;
 	left:4px;
+}
+
+/* --------------------------------
+ * after hamburger nav
+ * -------------------------------- */
+ 
+ #nav-res{
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   padding-left: 0;
+   z-index: -1;
+   display: none;
+   opacity: 0;
+   list-style: none;
+   text-align: center;
+   background-color: rgba(255, 225, 80, .5);
+   padding-top: 20vh;
+   top: 0;
+   transition: all 0.3s;
+ }
+ 
+ #nav-res.panelactive{
+  opacity: 1;
+	z-index: 5;
+}
+ 
+ #user_image-res{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid $main-color;
+}
+ 
+.nav-res-item{
+  display: block;
+  width: auto;
+}
+
+/*========= ぼかしのためのCSS ===============*/
+
+.mainblur{
+	filter: blur(8px);
+}
+
+
+.nav-res-link{
+  display: inline-block;
+  padding: 0.5em 1em;
+  height: 100%;
+  line-height: 42px;
+  color: $main-black;
+  position: relative;
+  font-weight: bold;
+  font-size: 1em;
+  &:hover{
+    color: $main-black;
+    text-decoration: none;
+  }
+  &.big-nav-link:hover{
+    color: $main-color;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #nav{
+    display: none;
+  }
+  #nav-res{
+    display: block;
+  }
+  .openbtn{
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+    top: 25px;
+    z-index: 15;
+  }
+}
+@media screen and (max-width: 512px){
+  .openbtn{
+    top: 8px;
+    right: 10px;
+  }
 }
  
  /* --------------------------------
