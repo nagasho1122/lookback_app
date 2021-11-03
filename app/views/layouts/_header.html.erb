@@ -20,4 +20,9 @@
             <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            
           <% end %>
         </ul>
+      <% if @logo_color_red %>
+        <div class="openbtn openbtn-home"><span></span><span></span><span></span></div>
+      <% else %>
+        <div class="openbtn"><span></span><span></span><span></span></div>
+      <% end %>
 </header>

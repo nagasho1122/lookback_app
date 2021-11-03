@@ -58,6 +58,10 @@
         $(window).on('load', function () {
         	ScrollAnime();//スクロール途中でヘッダーが消え、上にスクロールすると復活する関数を呼ぶ
         });
+        
+        $(".openbtn").click(function () {
+            $(this).toggleClass('active');
+        });
       });
     </script>
   </body>
