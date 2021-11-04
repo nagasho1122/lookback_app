@@ -243,12 +243,13 @@ p {
    padding-top: 200px;
    padding-left: 4vw;
    font-size: 2.75vw;
-   
  }
+ 
  #home-big-logo{
    width: 45vw;
    vertical-align: middle;
  }
+ 
  .big-logo-right{
    font-size: 4.5vw;
    vertical-align: middle;
@@ -1396,8 +1397,8 @@ p {
 }
  
  #user_image-res{
-  height: 50px;
-  width: 50px;
+  height: 15vw;
+  width: 15vw;
   border-radius: 50%;
   border: 1px solid $main-color;
 }
@@ -1416,13 +1417,13 @@ p {
 
 .nav-res-link{
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 1.5vh 1em;
   height: 100%;
   line-height: 42px;
   color: $main-black;
   position: relative;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 4vw;
   &:hover{
     color: $main-black;
     text-decoration: none;
