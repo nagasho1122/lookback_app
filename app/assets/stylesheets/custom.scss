@@ -701,15 +701,49 @@ p {
   }
 }
 
+@media screen and (max-width: 768px){
+  .subject-form{
+    width: 150px;
+    font-size: 1.2em;
+  }
+  .add-content-btn{
+    font-size: 0.8em;
+    width: 50px;
+    border-radius: 25px;
+  }
+  .question-btn{
+    top: 6px;
+    right: 100px;
+   }
+   .flex-container-detail{
+     padding: 20px 10px 0 10px;
+   }
+   .flex-container-review {
+     padding: 0 12px;
+   }
+   #form-container{
+     padding-right: 0;
+     padding-left: 0;
+   }
+}
+
+@media screen and (max-width: 576px){
+  .form-lookback {
+    margin: 20px;
+  }
+}
 
  /* --------------------------------
  * form-animation
  * -------------------------------- */
  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
  
- .group        { 
+ .group{ 
   position:relative; 
   margin-bottom: 35px; 
+}
+.inline-block{
+  display: inline-block;
 }
 
 @media screen and (min-width: 992px) {
@@ -751,7 +785,7 @@ p {
   resize: none;
 }
 
-.inputMaterial:focus    { outline:none;}
+.inputMaterial:focus{ outline:none;}
 
 
 /* LABEL ======================================= */
@@ -833,6 +867,59 @@ p {
   to  { width:0; background:transparent; }
 }
 
+@media screen and (max-width: 576px){
+  .inputMaterial {
+    width: 100%;
+  }
+  .bar  { 
+    width: 100%; 
+  }
+  .inline-block{
+    display: block;
+  }
+  .form-add-btn .fa-plus{
+    left: 20%;
+    color: white;
+  }
+  .subject-card {
+    border-radius: 20px;
+  }
+  .remove-subject-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    line-height: 40px;
+    left: 15px;
+  }
+  .question-btn, .review-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    line-height: 40px;
+    p, i{
+     line-height: 40px;
+     font-size: 0.8em;
+   }
+  }
+  .review-btn{
+    right: 5px;
+  }
+  .question-btn{
+    right: 50px;
+  }
+  .subject-form{
+    height: 40px;
+    font-size: 1em;
+  }
+  .flex-container-detail, .flex-container-review {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+  .review-btn-small {
+    right: 20px;
+  }
+}
 
 /* --------------------------------
  * user-home
