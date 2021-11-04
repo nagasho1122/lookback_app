@@ -90,6 +90,12 @@ p {
    border-radius: 50px;
    box-shadow: 0 0 70px 0 rgba(0, 0, 0, 0.1);
  }
+ 
+ @media screen and (max-width: 576px){
+   .normal-page-container{
+     margin-top: 100px;
+   }
+ }
 
 /* --------------------------------
  * header
@@ -1229,6 +1235,16 @@ p {
    padding: 50px 0 10px 0;
    position: relative;
  }
+ 
+ @media screen and (max-width: 992px){
+   .lookback-index-box{
+     margin: 0;
+   }
+   .lookback-index-title{
+     margin: 10px 10px 60px 10px;
+     font-size: 2.5em;
+   }
+ }
 
 
 /* --------------------------------
@@ -1294,6 +1310,12 @@ p {
    position: relative;
  }
  
+ @media screen and (max-width: 992px){
+   .review-index-box{
+     margin: 0;
+   }
+ }
+ 
  /* --------------------------------
  * review index tabs
  * -------------------------------- */
@@ -1314,6 +1336,21 @@ p {
   padding:2rem;
   margin-bottom:1rem;
 }
+@media screen and (max-width: 992px){
+   .tab-pane.active .tab-pane-header{
+     padding: 0;
+   }
+ }
+
+@media screen and (max-width: 576px){
+   .review-cards-box-all{
+     display: block;
+     margin: 0;
+   }
+   .review-card-box {
+    margin: 0 auto; 
+   }
+ }
 
 
 /* --------------------------------
