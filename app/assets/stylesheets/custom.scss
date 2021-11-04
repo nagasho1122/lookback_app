@@ -95,6 +95,9 @@ p {
    .normal-page-container{
      margin-top: 125px;
    }
+   #normal-page-container{
+     padding: 50px 0;
+   }
  }
 
 /* --------------------------------
@@ -967,6 +970,14 @@ p {
  /* --------------------------------
  * user-home right-layout
  * -------------------------------- */
+ @media screen and (max-width: 576px){
+   #user_home-right{
+     padding: 0;
+   }
+   .page-margin-box{
+     margin: 20px 0;
+   }
+ }
  
  /* --------------------------------
  * lookback index box layout
@@ -1017,7 +1028,13 @@ p {
    margin-bottom: 50px;
  }
  
- 
+ @media screen and (max-width: 576px){
+   .home-box-title{
+     text-align: center;
+     padding-left: 0;
+     margin: 30px 20px 30px 20px;
+   }
+ }
  
  /* --------------------------------
  * lookback-card animation
