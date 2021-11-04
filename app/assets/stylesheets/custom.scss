@@ -240,10 +240,11 @@ p {
    width: 100vw;
    height: 100vh;
    color: white;
-   padding-top: 200px;
+   padding-top: 175px;
    padding-left: 4vw;
    font-size: 2.75vw;
  }
+ 
  
  #home-big-logo{
    width: 45vw;
@@ -256,10 +257,14 @@ p {
    padding-top: 10px;
  }
  
+ #home-left{
+   padding-top: 50px;  
+ }
+ 
 .big-write-logo{
-  width: 350px;
-  height: 350px;
-  border-radius: 175px;
+  width: 90%;
+  padding-top: 90%;
+  border-radius: 50%;
   background-color: $accents-color;
   position: relative;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.29);
@@ -290,6 +295,36 @@ p {
     font-size: 3em;
     transition: 0.3s;
   }
+}
+
+@media screen and (max-width: 992px) {
+  .home-container{
+    padding-left: 0;
+  }
+  .big-write-logo {
+    width: 50%;
+    padding-top: 50%;
+    margin: 0 auto;
+    .big-word{
+      font-size: 1.5em;
+    }
+    .fa-pencil-alt{
+      font-size: 6em;
+    }
+  }
+  #home-left{
+   padding-top: 0;
+   font-size: 3.5vw;
+   text-align: center;
+   padding-bottom: 5vh;
+   p{
+     line-height: 2em;
+   }
+ }
+ #home-big-logo{
+   width: 60vw;
+ }
+ 
 }
 
 /* --------------------------------
