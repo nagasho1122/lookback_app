@@ -93,7 +93,7 @@ p {
  
  @media screen and (max-width: 576px){
    .normal-page-container{
-     margin-top: 100px;
+     margin-top: 125px;
    }
  }
 
@@ -1022,8 +1022,7 @@ p {
  /* --------------------------------
  * lookback-card animation
  * -------------------------------- */
- @import url(https://fonts.googleapis.com/css?family=Roboto:700);
- 
+
 .lookback-card {
   background: $back-color;
   display: block;
@@ -1129,6 +1128,56 @@ p {
 .lookback-card-destroy-btn{
   &:hover{
     color: $main-color;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .lookback-card {
+    margin : 0 auto 30px auto;
+    width : 90%;
+    height : 150px;
+  }
+   .lookback-card-box{
+     width: 100%;
+   }
+   .lookback-card-btn-area{
+     right: 30px;
+   }
+   .lookback-card-text {
+    line-height: 0.5em;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+  }
+  .year-res{
+    padding-bottom: 8px;
+  }
+  .lookback-card-right{
+    left: 55%;
+  }
+  .lookback-card-left {
+    width : 300px;
+    height : 150px;
+    left : -280px;
+  }
+  .lookback-card:hover .lookback-card-left{ 
+    left: -200px;
+  }
+  .lookback-card:hover .lookback-card-right{ 
+    margin-left : 80px;
+  }
+  .lookback-card-left-text {
+    margin-top : 45px;
+    margin-right: 6px;
+    p{
+      font-size: 1em;
+      margin-right : 14px;
+      line-height: 1em;
+      letter-spacing: 0.03em;
+    }
+    i{
+      font-size: 1.5em;
+      padding-left : 20px;
+    }
   }
 }
 
