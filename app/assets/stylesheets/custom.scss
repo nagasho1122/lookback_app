@@ -1707,6 +1707,9 @@ p {
     top: 25px;
     z-index: 15;
   }
+  .underbar-action::after{
+    transition: transform .1s;
+  }
 }
 @media screen and (max-width: 512px){
   .openbtn{
