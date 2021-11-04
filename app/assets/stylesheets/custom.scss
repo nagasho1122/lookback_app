@@ -873,6 +873,7 @@ p {
    border-radius: 30px;
    background-color: $accents-color;
    position: relative;
+   display: block;
    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
    transition: 0.3s;
    &:hover{
@@ -967,12 +968,25 @@ p {
   }
 } 
 
+@media screen and (max-width: 992px){
+  .user-home-res-flex{
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .user-home-lookback-btn{
+    margin: 30px 0;
+    width: 250px;
+  }
+  .review-card-box-user-home{
+    width: 300px;
+  }
+ }
+
 @media screen and (max-width: 768px){
    .actions-user-home{
      margin: 0 auto;
-   }
-   .user-home-lookback-btn{
-     margin: 30px auto;
    }
    #user_home-userimage{
     margin-left: 15px; 
@@ -1038,6 +1052,12 @@ p {
  
  #lookbacks-box{
    margin-bottom: 50px;
+ }
+ 
+ @media screen and (max-width: 992px){
+   .home-box-title{
+     margin: 30px 0;
+   }
  }
  
  @media screen and (max-width: 576px){
@@ -1417,6 +1437,9 @@ p {
 @media screen and (max-width: 992px){
    .tab-pane.active .tab-pane-header{
      padding: 0;
+   }
+   .review-cards-box-all{
+     margin: 0;
    }
  }
 
