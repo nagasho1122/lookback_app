@@ -16,7 +16,7 @@
   </head>
 
   <body id="body">
-    <div class="container">
+    <div class="blur-area">
       <% flash.each do |message_type, message| %>
         <div id="alert" class="alert-<%= message_type %>"><p class="alert-text"><%= message %></p></div>
       <% end %>

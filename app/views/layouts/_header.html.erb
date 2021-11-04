@@ -19,22 +19,25 @@
           <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            
         <% end %>
       </ul>
+      <% if current_user %>
       <ul id="nav-res">
-        <% if current_user %>
-          <li class="nav-res-item"><%= image_tag current_user.image, id: "user_image-res"%></li>
-          <li class="nav-res-item"><%= link_to "ホーム", root_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
-          <li class="nav-res-item"><%= link_to "マイページ", user_path(current_user.id) ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
-          <li class="nav-res-item"><%= link_to "振り返り一覧", lookbacks_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
-          <li class="nav-res-item"><%= link_to "Todo一覧", reviews_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
-          <li class="nav-res-itemr"><%= link_to "ログアウト", log_out_path, class: "nav-res-link underbar-action", data: { confirm: "本当にログアウトしますか?"}%></li>
-          <li class="nav-res-item"><%= link_to "振り返りを書く", new_lookback_path ,class: "nav-res-link big-nav-link", data: {"turbolinks" => false} %></li>
-        <% else  %>
-          <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            
-        <% end %>
+        <li class="nav-res-item"><%= image_tag current_user.image, id: "user_image-res"%></li>
+        <li class="nav-res-item"><%= link_to "ホーム", root_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
+        <li class="nav-res-item"><%= link_to "マイページ", user_path(current_user.id) ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
+        <li class="nav-res-item"><%= link_to "振り返り一覧", lookbacks_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
+        <li class="nav-res-item"><%= link_to "Todo一覧", reviews_path ,class: "nav-res-link underbar-action", data: {"turbolinks" => false} %></li>
+        <li class="nav-res-itemr"><%= link_to "ログアウト", log_out_path, class: "nav-res-link underbar-action", data: { confirm: "本当にログアウトしますか?"}%></li>
+        <li class="nav-res-item"><%= link_to "振り返りを書く", new_lookback_path ,class: "nav-res-link big-nav-link", data: {"turbolinks" => false} %></li>
       </ul>
       <% if @logo_color_red %>
         <div class="openbtn openbtn-home"><span></span><span></span><span></span></div>
       <% else %>
         <div class="openbtn"><span></span><span></span><span></span></div>
+      <% end %>
+      
+      <% else  %>
+        <ul class="nav header-nav header-action" id="nav-res-login">
+          <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            
+        </ul>
       <% end %>
 </header>

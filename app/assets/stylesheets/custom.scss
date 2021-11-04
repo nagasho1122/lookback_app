@@ -1714,6 +1714,15 @@ p {
     right: 10px;
   }
 }
+
+#nav-res-login{
+  display: block;
+}
+@media screen and (max-width: 512px){
+  #nav-res-login{
+    top: 70px;
+  }
+}
  
  /* --------------------------------
  * alert
@@ -1725,7 +1734,7 @@ p {
    width: 150px;
    height: 150px;
    border-radius: 50%;
-   z-index: 10;
+   z-index: 4;
    text-align: center;
    display: table;
    padding: 10px;
@@ -1736,6 +1745,18 @@ p {
   display: table-cell;
   vertical-align: middle;
  }
+ 
+ @media screen and (max-width: 512px){
+  #alert{
+    left: 20px;
+    bottom: 20px;
+    width: 120px;
+    height: 120px;
+  }
+  .alert-text{
+    font-size: 1em;
+  }
+}
 
 
 /* miscellaneous */
