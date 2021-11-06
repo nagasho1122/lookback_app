@@ -11,7 +11,8 @@
         <p class="lookback-card-year lookback-card-text year-res"><%= lookback.year %>年度</p>
         <p class="lookback-card-name lookback-card-text">
           <%= lookback.university%>
-          <%= "大学" if !lookback.university.include?("大学") %>
+          <!-- 「大学」と入っていなかったら末尾に大学をつける。模試等で大学の名前がつかない可能性があることからコメントアウト -->
+          <!--<%= "大学" if !lookback.university.include?("大学") %>-->
         </p>
         <p class="lookback-card-faculty lookback-card-text d-inline">
           <%= lookback.faculty %>
