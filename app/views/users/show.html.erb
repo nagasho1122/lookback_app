@@ -20,7 +20,7 @@
                     <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box">
                       <%= f.text_area :content, class: "review-text", :required => true %>
                       <div class="deadline-box deadline-box-user-left">
-                        <%= f.date_field :deadline_at, class: "deadline-text deadline-tect-user-left d-inline", min: Date.current, :required => true %>
+                        <%= f.date_field :deadline_at, class: "deadline-text deadline-tect-user-left d-inline", min: Date.current, value:Date.current, :required => true %>
                         <p class="deadline-word d-inline">まで</p>
                       </div>
                       </div>
