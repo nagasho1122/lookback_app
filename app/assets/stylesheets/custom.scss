@@ -1727,6 +1727,35 @@ p {
     top: 70px;
   }
 }
+@media screen and (min-width: 500px){
+  @media screen and (max-height: 768px){
+    .nav-res-link{
+      font-size: 4vh;
+    }
+    #user_image-res{
+      height: 15vh;
+      width: 15vh;
+    }
+  }
+  @media screen and (max-height: 450px){
+   #nav-res{
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+   }
+   .nav-res-item{
+     height: 55px;
+   }
+   .res-image-icon{
+     width: 100vw;
+     height: 15vh;
+   }
+   .home-container{
+     height: 950px;
+   }
+  }
+}
  
  /* --------------------------------
  * alert
