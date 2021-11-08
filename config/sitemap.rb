@@ -9,9 +9,10 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
 )
 
 SitemapGenerator::Sitemap.create do
-  add for_customer_articles_path, priority: 0.7, changefreq: 'daily'
-
-  Article.where(status: 1).find_each do |article|
-    add for_customer_article_path(article), priority: 0.7, lastmod: article.updated_at, changefreq: 'daily'
-  end
+  add root_path, priority: 0.7, changefreq: 'daily'
+  add lookbacks_path
+  add reviews_path
+  add log_out_path
+  add new_lookback_path
+  add "/auth/google_oauth2"
 end
