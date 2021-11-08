@@ -25,9 +25,6 @@ class LookbacksController < ApplicationController
     redirect_to root_url
   end
   
-  def show
-  end
-  
   def index
     @lookbacks = current_user.lookbacks.all.page(params[:page]).per(10)
   end
