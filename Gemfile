@@ -11,6 +11,7 @@ gem 'aws-sdk-s3',              '1.46.0', require: false
 gem 'puma', '~> 5.0'
 gem "dotenv-rails"
 gem "google-analytics-rails"
+gem 'sitemap_generator'
 gem 'cocoon'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'

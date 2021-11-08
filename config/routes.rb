@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :create, :destroy, :update]
   resources :subjects, only: [:create, :destroy, :update]
   resources :dones, only: [:create, :index, :destroy]
+  get 'sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/nagasho-lookback/sitemaps/sitemap.xml.gz')
 end
