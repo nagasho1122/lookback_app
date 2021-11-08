@@ -10,6 +10,7 @@ gem 'aws-sdk-s3',              '1.46.0', require: false
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 gem "dotenv-rails"
+gem "google-analytics-rails"
 gem 'cocoon'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
