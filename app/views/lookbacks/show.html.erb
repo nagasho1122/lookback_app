@@ -32,10 +32,11 @@
         <%= f.label :department, "学科" , class: "label"%>
       </div>
     </div>
+  <% end %>
   
     <% @subjects.each do |subject| %>    
       <div class="subject-card">
-        <div class="subject-card-top">
+        <div class="subject-card-top show-subject">
             <%= subject.subject %>
         </div>
         <div class="subject-card-bottom">
@@ -45,11 +46,15 @@
                 <div class="lookback-detail-card">
                   <div class="lookback-detail-card-top">
                     <div class="number-word-left d-inline">大問：</div>
-                    <%= lookback_detail.number %>
+                      <%= lookback_detail.number %>
                   </div>
                   <div class="lookback-detail-card-bottom">
-                    <%= lookback_detail.unit %>
-                    <%= lookback_detail.text %>
+                    <div class="lookback-detail-card-bottom-formbox form-unit show-detail">
+                      <%= lookback_detail.unit %>
+                    </div>
+                    <div class="lookback-detail-card-bottom-formbox form-lookback_word show-detail">
+                      <%= lookback_detail.text %>
+                    </div>
                   </div>
                 </div>
             <% end %>
@@ -57,30 +62,14 @@
           
           <div class="flex-container-review">
             <% instance_variable_get("@reviews_#{subject.id}").each do |review| %>
-                <div class="review-card-box review-card-<%= review.id %>">
-                    <div class= "review-tape"></div>
-                    <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page review-click-event">
-                        <div class="review-text review-text-user">
-                          <%= review.content %>
-                        </div>
-                        <div class="deadline-box deadline-box-user">
-                            <div class="deadline-text d-inline deadline-text-user-show" >
-                              <%= review.deadline_at.strftime("%Y年%m月%d日") %>
-                            </div>
-                            <p class="deadline-word d-inline">まで</p>
-                            <%= link_to review_path(review), method: :delete, :class => 'review-delete-button done-page-btn', remote: true , data: {"turbolinks" => false} do %>
-                              <i class="fas fa-trash"></i>
-                            <% end %>
-                        </div>
-                    </div>
-                    <p>&nbsp;</p>
-                </div>
+              <%= render "lookbacks/show_review", review: review %>
             <% end %>
           </div>
         </div>
       </div>
     <% end %>
       
+  <%= form_with(model: @lookback, local: true ) do |f| %>
     <div class="group">
       <%= f.text_area :all_text, class: 'inputMaterial-all_text all_text-form', value: @lookback.department, :readonly => true %>
       <span class="highlight"></span>

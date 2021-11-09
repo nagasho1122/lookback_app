@@ -29,6 +29,10 @@ class LookbacksController < ApplicationController
       instance_variable_set("@lookback_details_#{subject.id}", subject.lookback_details.all)
       instance_variable_set("@reviews_#{subject.id}", subject.reviews.all)
     end
+    #doneモデルを作成
+    @done = current_user.dones.build
+    #達成済みの復習リストのidを配列で取得
+    @done_review_ids = current_user.done_review.map(&:id)
   end
   
   def destroy

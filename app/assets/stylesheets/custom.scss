@@ -1791,6 +1791,17 @@ p {
   }
 }
 
+/* --------------------------------
+ * lookback_show
+ * -------------------------------- */
+ .show-subject{
+   font-size: 2em;
+   color: $sub-accents-color;
+ }
+ 
+ .show-detail{
+   background-color: white;
+ }
 
  /* --------------------------------
  * footer
