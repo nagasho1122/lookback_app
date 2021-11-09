@@ -19,6 +19,18 @@ class LookbacksController < ApplicationController
     
   end
   
+  def show
+    #lookbackをparamsから取得
+    @lookback = Lookback.find(params[:id])
+    #@lookbackからsubjectを取得
+    @subjects = @lookback.subjects.all
+    #@subjectsより、各subjectのhas_manyの関係にあるlookback_detailとreviewを取得
+    @subjects.each do |subject|
+      instance_variable_set("@lookback_details_#{subject.id}", subject.lookback_details.all)
+      instance_variable_set("@reviews_#{subject.id}", subject.reviews.all)
+    end
+  end
+  
   def destroy
     Lookback.find(params[:id]).destroy
     flash[:success] = "振り返りを削除しました"

@@ -1,0 +1,91 @@
+<% provide(:title, "振り返り") %>
+<div class="container normal-page-container" id="normal-page-container">
+  <%= form_with(model: @lookback, local: true ) do |f| %>
+    <div class="form-lookback">
+      <div class="school-inf-box">
+      <div class="group">
+        <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, value: @lookback.year, 
+        class: 'inputMaterial', id: "lookback_year",  :readonly => true %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= f.label :year, "年度", class: "label" %>
+      </div>
+      
+      <div class="group">
+        <%= f.text_field :university, class: 'inputMaterial university-form', value: @lookback.university, :readonly => true %>
+        <span class="highlight"></span>
+        <span class="bar university-bar"></span>
+        <%= f.label :university, "大学名", class: "label" %>
+      </div>
+      
+      <div class="group inline-block">
+        <%= f.text_field :faculty, class: 'inputMaterial faculty-form', value: @lookback.faculty, :readonly => true %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= f.label :faculty, "学部", class: "label" %>
+      </div>
+      
+      <div class="group inline-block department-group">
+        <%= f.text_field :department, class: 'inputMaterial department-form', value: @lookback.department, :readonly => true %>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <%= f.label :department, "学科" , class: "label"%>
+      </div>
+    </div>
+  
+    <% @subjects.each do |subject| %>    
+      <div class="subject-card">
+        <div class="subject-card-top">
+            <%= subject.subject %>
+        </div>
+        <div class="subject-card-bottom">
+          
+          <div class="flex-container-detail">
+            <% instance_variable_get("@lookback_details_#{subject.id}").each do |lookback_detail| %>
+                <div class="lookback-detail-card">
+                  <div class="lookback-detail-card-top">
+                    <div class="number-word-left d-inline">大問：</div>
+                    <%= lookback_detail.number %>
+                  </div>
+                  <div class="lookback-detail-card-bottom">
+                    <%= lookback_detail.unit %>
+                    <%= lookback_detail.text %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          
+          <div class="flex-container-review">
+            <% instance_variable_get("@reviews_#{subject.id}").each do |review| %>
+                <div class="review-card-box review-card-<%= review.id %>">
+                    <div class= "review-tape"></div>
+                    <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page review-click-event">
+                        <div class="review-text review-text-user">
+                          <%= review.content %>
+                        </div>
+                        <div class="deadline-box deadline-box-user">
+                            <div class="deadline-text d-inline deadline-text-user-show" >
+                              <%= review.deadline_at.strftime("%Y年%m月%d日") %>
+                            </div>
+                            <p class="deadline-word d-inline">まで</p>
+                            <%= link_to review_path(review), method: :delete, :class => 'review-delete-button done-page-btn', remote: true , data: {"turbolinks" => false} do %>
+                              <i class="fas fa-trash"></i>
+                            <% end %>
+                        </div>
+                    </div>
+                    <p>&nbsp;</p>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      
+    <div class="group">
+      <%= f.text_area :all_text, class: 'inputMaterial-all_text all_text-form', value: @lookback.department, :readonly => true %>
+      <span class="highlight"></span>
+      <%= f.label :all_text, "全体振り返り", class: "label label-all_text" %>
+    </div>
+  <% end %>
+  
+</div>

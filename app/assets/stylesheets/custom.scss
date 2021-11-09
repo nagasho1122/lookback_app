@@ -808,12 +808,12 @@ p {
 }
 
 /* active state */
-.inputMaterial:focus ~ .label, .inputMaterial:valid ~ .label{
+.inputMaterial:focus ~ .label, .inputMaterial:valid ~ .label, .inputMaterial:read-only ~ .label{
   top:-20px;
   font-size:14px;
   color: $sub-accents-color;
 }
-.inputMaterial-all_text:focus ~ .label, .inputMaterial-all_text:valid ~ .label{
+.inputMaterial-all_text:focus ~ .label, .inputMaterial-all_text:valid ~ .label, .inputMaterial-all_text:read-only ~ .label{
   top: -26px;
   font-size: 18px;
   color: $sub-accents-color;

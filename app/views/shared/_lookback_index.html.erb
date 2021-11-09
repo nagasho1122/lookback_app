@@ -1,6 +1,6 @@
 <% @lookbacks.each do |lookback| %>
   <div class="lookback-card-box">
-    <a class="lookback-card" href="<%= edit_lookback_path(lookback) %>">
+    <a class="lookback-card" href="<%= lookback_path(lookback) %>">
       <div class="lookback-card-left">
         <div class="lookback-card-left-text">
           <p>CHECK!</p>
@@ -25,11 +25,9 @@
       </div>
       </a>
       <div class="lookback-card-btn-area">
-        <!-- 編集画面と確認画面を分ける必要がないと判断し、ボタンをコメントアウト
         <%= link_to edit_lookback_path(lookback), class: "lookback-card-btn lookback-card-edit-btn d-block", data: {"turbolinks" => false} do%>
           編集<i class="fas fa-pen"></i>
         <% end %>
-        -->
         <%= link_to lookback, method: :delete, class: "lookback-card-btn lookback-card-destroy-btn d-block", data: { confirm: "本当に削除しますか?"} do%>
           削除<i class="fas fa-trash"></i>
         <% end %>
