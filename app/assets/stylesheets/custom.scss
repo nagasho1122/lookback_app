@@ -1873,6 +1873,23 @@ p {
  }
 }
 
+/* --------------------------------
+ * show
+ * -------------------------------- */
+ 
+ .done-tape{
+   background-color: $main-color;
+   opacity: 0.8;
+   text-align: center;
+   font-size: 1.5em;
+   margin-bottom: -16px;
+   color: $accents-color;
+   &:after{
+     content: "達成済み";
+   }
+ }
+ 
+
 /* miscellaneous */
 .debug_dump {
   clear: both;

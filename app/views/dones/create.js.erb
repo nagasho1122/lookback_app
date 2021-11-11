@@ -3,5 +3,8 @@ console.log("a")
 if($('.done-field').length){
   $('#done-tab-field').empty();
   $('#done-tab-field').prepend("<%= j(render 'reviews/review_index_with_done', object: @done_reviews ) %>");
-} 
+} else if($(".flex-container-review").length){
+  $(".review-card-<%= @review_id %>").empty();
+  $(".review-card-<%= @review_id %>").prepend("<%= j(render "lookbacks/show_review", review: @show_review, done_review_ids: @done_review_ids ) %>");
+}
 
