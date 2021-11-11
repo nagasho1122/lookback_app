@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     #復習リストの期限切れじゃないかつ直近三日でないものを最大で６個取得
     @reviewsNotNear = @user.reviews.where.not(id: @done_review_ids).where("deadline_at > ?", after_three_days).limit(4)
     #復習リストの期限切れじゃないかつ直近三日のものを最大で６個取得
-    @reviewsNear = @user.reviews.where.not(id: @done_review_ids).where(deadline_at:  DateTime.now..after_three_days).limit(4)
+    @reviewsNear = @user.reviews.where.not(id: @done_review_ids).where(deadline_at:  today..after_three_days).limit(4)
     #復習リストの期限切れのものを最大で3個取得
     @reviewsExpire = @user.reviews.where.not(id: @done_review_ids).where("deadline_at < ?", today).limit(4)
     @done = @user.dones.build

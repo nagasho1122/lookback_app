@@ -56,7 +56,7 @@ class LookbacksController < ApplicationController
     @lookback = Lookback.find(params[:id])
     if @lookback.update(lookback_params)
       flash[:success] = "振り返りを更新しました"
-      redirect_to lookbacks_path
+      redirect_to lookback_path(@lookback)
     else
       render "edit"
     end

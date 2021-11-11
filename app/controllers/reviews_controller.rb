@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     #復習リストの期限切れじゃないかつ直近三日でないものを全て取得
     @reviewsNotNear = current_user.reviews.where.not(id: @done_review_ids).where("deadline_at > ?", after_three_days)
     #復習リストの期限切れじゃないかつ直近三日のものを全て取得
-    @reviewsNear = current_user.reviews.where.not(id: @done_review_ids).where(deadline_at:  DateTime.now..after_three_days)
+    @reviewsNear = current_user.reviews.where.not(id: @done_review_ids).where(deadline_at:  today..after_three_days)
     #復習リストの期限切れのものを全て取得
     @reviewsExpire = current_user.reviews.where.not(id: @done_review_ids).where("deadline_at < ?", today)
     #復習リストの科目をリストで取得
@@ -52,12 +52,12 @@ class ReviewsController < ApplicationController
     @subjects = @subjects.uniq
     @subjects.each do |subject|
       instance_variable_set("@reviewsNotNear_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where.not(id: @done_review_ids).where("deadline_at > ?", after_three_days))
-      instance_variable_set("@reviewsNear_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where.not(id: @done_review_ids).where(deadline_at:  DateTime.now..after_three_days))
+      instance_variable_set("@reviewsNear_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where.not(id: @done_review_ids).where(deadline_at:  today..after_three_days))
       instance_variable_set("@reviewsExpire_#{subject}", current_user.reviews.joins(:subject).where('subjects.subject = ?', subject).where.not(id: @done_review_ids).where("deadline_at < ?", today))
     end
     @subjects.push("その他")
     instance_variable_set("@reviewsNotNear_その他", current_user.reviews.where(subject_id: nil).where.not(id: @done_review_ids).where("deadline_at > ?", after_three_days))
-    instance_variable_set("@reviewsNear_その他", current_user.reviews.where(subject_id: nil).where.not(id: @done_review_ids).where(deadline_at:  DateTime.now..after_three_days))
+    instance_variable_set("@reviewsNear_その他", current_user.reviews.where(subject_id: nil).where.not(id: @done_review_ids).where(deadline_at:  today..after_three_days))
     instance_variable_set("@reviewsExpire_その他", current_user.reviews.where(subject_id: nil).where.not(id: @done_review_ids).where("deadline_at < ?", today))
     @subjects.push("達成済み")
   end
