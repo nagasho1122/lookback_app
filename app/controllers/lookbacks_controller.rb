@@ -47,6 +47,7 @@ class LookbacksController < ApplicationController
   
   def edit
     @lookback = Lookback.find(params[:id])
+    @done_review_ids = current_user.done_review.map(&:id)
   end
   
   def update
