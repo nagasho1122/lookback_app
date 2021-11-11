@@ -20,8 +20,8 @@ SitemapGenerator::Sitemap.create do
   end
   
   Lookback.all.each do |lookback|
-    add lookback_path(lookback), priority: 0.9, lastmod: lookback.update_at, changefreq: 'daily'
-    add edit_lookback_path(lookback), priority: 0.9, lastmod: lookback.update_at, changefreq: 'daily'
+    add lookback_path(lookback), priority: 0.9, changefreq: 'daily'
+    add edit_lookback_path(lookback), priority: 0.9, changefreq: 'daily'
   end
   
 end
