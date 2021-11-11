@@ -1,6 +1,7 @@
-$(".review-card-<%= @review_id %>").fadeOut(300);
-console.log("a")
-if($('.done-field').length){
+if ($("#render-reviews-box").length){
+  $(".review-card-<%= @review_id %>").fadeOut(300);
+}else if($('.done-field').length){
+  $(".review-card-<%= @review_id %>").fadeOut(300);
   $('#done-tab-field').empty();
   $('#done-tab-field').prepend("<%= j(render 'reviews/review_index_with_done', object: @done_reviews ) %>");
 } else if($(".flex-container-review").length){
