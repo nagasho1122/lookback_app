@@ -9,9 +9,19 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
 )
 
 SitemapGenerator::Sitemap.create do
-  add root_path, changefreq: 'daily'
-  add lookbacks_path
-  add reviews_path
-  add log_out_path
-  add new_lookback_path
+  add root_path, changefreq: 'weekly', priority: 0.5
+  add lookbacks_path, changefreq: 'daily', priority: 0.9 
+  add reviews_path, changefreq: 'daily', priority: 0.9 
+  add log_out_path, changefreq: 'weekly', priority: 0.5
+  add new_lookback_path, changefreq: 'weekly', priority: 0.5
+  
+  User.all.each do |user|
+    add user_path(user), changefreq: 'daily'
+  end
+  
+  Lookback.all.each do |lookback|
+    add lookback_path(lookback), priority: 0.9, lastmod: lookback.update_at, changefreq: 'daily'
+    add edit_lookback_path(lookback), priority: 0.9, lastmod: lookback.update_at, changefreq: 'daily'
+  end
+  
 end
