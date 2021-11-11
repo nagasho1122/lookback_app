@@ -1874,7 +1874,7 @@ p {
 }
 
 /* --------------------------------
- * show
+ * lookback show
  * -------------------------------- */
  
  .done-tape{
@@ -1889,6 +1889,73 @@ p {
    }
  }
  
+ .show-btn-text{
+   font-size: 20px;
+   padding: 0px 20px 0px 45px;
+   &:hover{
+     text-decoration: none;
+     +.show-btn-icon{
+       color: $main-color;
+     }
+   }
+ }
+ 
+ .show-btn-icon{
+   position: absolute;
+    top: 50%;
+    left: 20px;
+    color: white;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    pointer-events: none;
+    font-size: 24px;
+ }
+ 
+ .show-edit-btn-box{
+   background-color: $accents-color;
+   margin: 0 auto 50px auto;
+   padding-left: 15px;
+   width: 300px;
+   height: 50px;
+   position: relative;
+   border-radius: 25px;
+   vertical-align: center;
+   transition: 0.3s;
+   &:hover{
+    transform: scale(1.1);
+   }
+ }
+ .show-edit-btn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 50px;
+   color: $main-color;
+   font-size: 24px;
+   &:hover{
+     text-decoration: none;
+     color: $main-color;
+   }
+ }
+
+/* --------------------------------
+ * lookback edit
+ * -------------------------------- */
+ .edit-index-title{
+   color: $main-color;
+   margin: 0 40px 60px 40px;
+   padding-bottom: 20px;
+   border-bottom: 3px solid #D7092F;
+   font-size: 3.2em;
+ }
+ @media screen and (max-width: 576px){
+   .edit-index-title{
+     margin: 0 20px 60px 20px;
+     font-size: 2.5em;
+   }
+ }
 
 /* miscellaneous */
 .debug_dump {

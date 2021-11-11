@@ -1,6 +1,12 @@
 <% provide(:title, "振り返り") %>
 <div class="container normal-page-container" id="normal-page-container">
-  
+  <div class="show-edit-btn-box">
+    <a class="show-edit-btn" href=<%= edit_lookback_path(@lookback) %> data-turbolinks="false">
+        編集する&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-pencil-alt"></i>
+    </a>
+    
+  </div>
   
   <div class="form-lookback">
     <div class="school-inf-box">
@@ -84,6 +90,11 @@
     </div>
     <span class="highlight"></span>
     <div class="label label-all_text">全体振り返り</div>
+  </div>
+  
+  <div class="actions">
+    <a href="<%= lookbacks_path %>" class="submit-btn lookbackedit-submit-btn show-btn-text">振り返り一覧に戻る</a>
+    <i class="fas fa-chevron-left show-btn-icon"></i>
   </div>
   
 </div>
