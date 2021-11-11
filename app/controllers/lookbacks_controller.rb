@@ -3,6 +3,8 @@ class LookbacksController < ApplicationController
   def new
     @num = 0
     @lookback = current_user.lookbacks.build
+    #editにて用いる変数をエラーが出ないために定義
+    @done_review_ids = current_user.done_review.map(&:id)
     #@lookback_details = @lookback.lookback_details.build
     #@reviews = @lookback_details.reviews.build
   end
