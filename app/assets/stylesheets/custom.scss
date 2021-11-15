@@ -410,6 +410,7 @@ p {
   .home-reviews-title{
     color: #413F3A;
     margin-bottom: 30px;
+    font-size: 2em;
   }
   .home-reviews-flexbox{
     display: flex;
@@ -2084,6 +2085,23 @@ p {
      font-size: 2.5em;
    }
  }
+ 
+ /* --------------------------------
+ * home popup animation
+ * -------------------------------- */
+ /*アニメーション要素のスタイル*/
+.home-animation{
+	opacity : 0;
+	visibility: hidden;
+	transition: 1s;
+	transform: translateY(120px);
+}
+/*アニメーション要素までスクロールした時のスタイル*/
+.home-active{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
 
 /* miscellaneous */
 .debug_dump {

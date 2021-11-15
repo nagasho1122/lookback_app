@@ -40,14 +40,6 @@
           var elemTop = 130;//#area-2の位置まできたら
         	var scroll = $(window).scrollTop();
         	
-        	if($("#home").length){
-        	  if (scroll > 650){
-          	  $("#logo").attr("src", "/assets/lookback_logo_red1")
-          	}else{
-          	  $("#logo").attr("src", "/assets/lookback_logo_white")
-          	}
-        	}
-        	
           //ヘッダーの出し入れをする
           if(scroll <= elemTop) {
       		//IE11対策で処理を入れない

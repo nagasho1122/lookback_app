@@ -26,7 +26,7 @@
       </p>
   </div>
   <h1 class="catchcopy">簡単&nbsp;<span class="catchcopy-green">3STEP</span>で始めよう！</h1>
-  <div class="use-image-box container-fluid">
+  <div class="use-image-box container-fluid home-animation">
     <div class="row">
       <div class="col-lg-6 use-image-1-left" id="use-text-1">
         <p class="step text-center text-lg-left px-lg-3">STEP-1</p>
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="use-image-box container-fluid">
+  <div class="use-image-box container-fluid home-animation">
     <div class="row">
       <div class="col-lg-6 use-image-1-left order-lg-2" id="use-text-2">
         <p class="step text-center text-lg-right px-lg-3">STEP-2</p>
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="use-image-box container-fluid">
+  <div class="use-image-box container-fluid home-animation">
     <div class="row">
       <div class="col-lg-6 use-image-1-left" id="use-text-3">
         <p class="step text-center text-lg-left px-lg-3">STEP-3</p>
@@ -76,26 +76,47 @@
     </div>
   </div>
   <div class="home-reviews container-fluid">
-    <h2 class="home-reviews-title">ふせんの色によって状況が確認できる！</h2>
-    <div class="home-reviews-flexbox">
-      <div class="home-review-box">
-        <%= render "review_card", content: "二項定理を用いた問題を5問解く", deadline: "2021年11月21日", effect: ""%>
-        <p class="review-description">通常</p>
-      </div>
-      <div class="home-review-box">
-        <%= render "review_card", content: "難しい確率の問題を5問解く", deadline: "2021年11月21日", effect: "near-three-days"%>
-        <p class="review-description">期限が三日以内</p>
-      </div>
-      <div class="home-review-box">
-        <%= render "review_card", content: "微分積分の計算問題を50問やる", deadline: "2021年11月21日", effect: "expired"%>
-        <p class="review-description">期限切れ</p>
+    <div class="home-animation">
+      <h2 class="home-reviews-title">ふせんの色によって状況が確認できる！</h2>
+      <div class="home-reviews-flexbox">
+        <div class="home-review-box">
+          <%= render "review_card", content: "二項定理を用いた問題を5問解く", deadline: "2021年11月21日", effect: ""%>
+          <p class="review-description">通常</p>
+        </div>
+        <div class="home-review-box">
+          <%= render "review_card", content: "難しい確率の問題を5問解く", deadline: "2021年11月21日", effect: "near-three-days"%>
+          <p class="review-description">期限が三日以内</p>
+        </div>
+        <div class="home-review-box">
+          <%= render "review_card", content: "微分積分の計算問題を50問やる", deadline: "2021年11月21日", effect: "expired"%>
+          <p class="review-description">期限切れ</p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="use-image-4">
-    
-  </div>
-  <div class="use-image-5">
-    
-  </div>
 </div>
+<script>
+  $(function(){
+  	$(window).on('load scroll',function (){
+  	  var scrollhome = $(window).scrollTop();
+  	  if (scrollhome > 650){
+    	  $("#logo").attr("src", "/assets/lookback_logo_red1")
+    	}else{
+    	  $("#logo").attr("src", "/assets/lookback_logo_white")
+    	}
+  		$('.home-animation').each(function(){
+  			//ターゲットの位置を取得
+  			var target = $(this).offset().top;
+  			//スクロール量を取得
+  			var scroll = $(window).scrollTop();
+  			//ウィンドウの高さを取得
+  			var height = $(window).height();
+  			//ターゲットまでスクロールするとフェードインする
+  			if (scroll > target - height){
+  				//クラスを付与
+  				$(this).addClass('home-active');
+  			}
+  		});
+  	});
+  });
+</script>
