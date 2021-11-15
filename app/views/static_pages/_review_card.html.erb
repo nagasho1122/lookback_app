@@ -1,0 +1,14 @@
+<div class="review-card-box">
+    <div class= "review-tape"></div>
+    <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box review-box-user-page <%= effect if !effect.empty? %> review-click-event">
+        <div class="review-text review-text-user <%= effect if !effect.empty? %>">
+          <%= content %>
+        </div>
+        <div class="deadline-box deadline-box-user <%= effect if !effect.empty? %>">
+            <div class="deadline-text d-inline <%= effect if !effect.empty? %> deadline-text-user-show" >
+              <%= deadline %>
+            </div>
+            <p class="deadline-word d-inline">まで</p>
+        </div>
+    </div>
+</div>
