@@ -9,6 +9,24 @@ class LookbacksControllerTest < ActionDispatch::IntegrationTest
                     all_text: "非常によくできた。特に後半の問題は全問正解。")
   end
   
+  test "should get show" do
+    get lookback_path(@lookback)
+    assert_response :success
+    assert_select "title", "振り返り - カコモンバック"
+  end
+  
+  test "should get edit" do
+    get edit_lookback_path(@lookback)
+    assert_response :success
+    assert_select "title", "振り返り編集 - カコモンバック"
+  end
+  
+  test "should get index" do
+    get lookbacks_path
+    assert_response :success
+    assert_select "title", "振り返り一覧 - カコモンバック"
+  end
+  
   test "should redirect create when not logged in" do
     assert_no_difference "Lookback.count" do
       post lookbacks_path, params: {lookback: {university: "東京大学", faculty: "理工学部",

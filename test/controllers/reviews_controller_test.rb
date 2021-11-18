@@ -8,6 +8,12 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
                                   deadline_at: DateTime.now )
   end
   
+  test "should get index" do
+    get reviews_path
+    assert_response :success
+    assert_select "title", "Todo一覧 - カコモンバック"
+  end
+  
   #test "should  create review" do
    # log_in_as(@user)
     #get user_path(@user.id)

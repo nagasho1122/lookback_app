@@ -1,6 +1,6 @@
 <div class="nested-fields">
     <div class="review-card-box">
-        <div class= "review-tape <%= 'done-tape' if @done_review_ids.include?(f.object.id) %>"></div>
+        <div class= "review-tape <%= 'done-tape' if @done_review_ids && @done_review_ids.include?(f.object.id) %>"></div>
         <div class="l-border l-p-t l-p-r l-p-b l-p-l review-box">
             <%= f.text_area :content, class: "review-text", :required => true %>
             <div class="deadline-box">
