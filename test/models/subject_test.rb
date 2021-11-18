@@ -7,6 +7,11 @@ class SubjectTest < ActiveSupport::TestCase
     @user = users(:example1)
   end
   
+  test "content should be present" do
+    @subject.content = "  "
+    assert_not @subject.valid?
+  end
+  
   test "associated reviews should be destroy" do
     @subject.save
     @subject.reviews.create!(content: "単語帳 2周",  user_id: @user.id,

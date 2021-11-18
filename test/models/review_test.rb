@@ -28,7 +28,7 @@ class ReviewTest < ActiveSupport::TestCase
     assert_not @review.valid?
   end
   
-  test "content should be at most 30 characters" do
+  test "content should be at most 50 characters" do
     @review.content = "a" * 51
   end
   
