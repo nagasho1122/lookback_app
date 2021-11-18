@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        image: 画像
+      lookback:
+        university: 大学名
+        faculty: 学部
+        department: 学科
+        year: 年度
+        all_text: 全体振り返り
+        user_id: ユーザー
+      subject:
+        subject: 科目
+        lookback_id: 振り返り
+      lookback_detail:
+        number: 大問
+        text: 振り返り
+        subject_id: 科目
+      review:
+        content: Todo
+        deadline_at: 締め切り日
+        user_id: ユーザー
+        subject_id: 科目

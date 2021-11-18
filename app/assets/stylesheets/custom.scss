@@ -982,6 +982,25 @@ p {
   animation:inputHighlighter 0.3s ease;
 }
 
+.field_with_errors{
+  .label{
+    top: -20px;
+    font-size :14px;
+    color: $main-color;
+  }
+  .label-all_text{
+    top: -26px;
+    font-size: 18px;
+  }
+  ~ .bar:before, ~ .bar:after{
+    width: 50%;
+    background: $main-color; 
+  }
+  .inputMaterial-all_text{
+    border: 1px solid $main-color;
+  }
+}
+
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from { background:#5264AE; }

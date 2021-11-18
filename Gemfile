@@ -13,6 +13,7 @@ gem "dotenv-rails"
 gem "google-analytics-rails"
 gem 'sitemap_generator'
 gem 'cocoon'
+gem 'rails-i18n'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 # Use SCSS for stylesheets
