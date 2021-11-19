@@ -3,9 +3,9 @@
 example1:
   name: example1
   email: abc@gmail.com
-  image: MyString
+  image: /fixtures/test_icon.jpg
 
 example2:
   name: example2
   email: defg.gamil.com
-  image: MyString
+  image: /fixtures/test_icon.jpg

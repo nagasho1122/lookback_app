@@ -7,8 +7,8 @@ class SubjectTest < ActiveSupport::TestCase
     @user = users(:example1)
   end
   
-  test "content should be present" do
-    @subject.content = "  "
+  test "subject should be present" do
+    @subject.subject = "  "
     assert_not @subject.valid?
   end
   

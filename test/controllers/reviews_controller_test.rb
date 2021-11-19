@@ -9,6 +9,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should get index" do
+    log_in_as(@user)
     get reviews_path
     assert_response :success
     assert_select "title", "Todo一覧 - カコモンバック"

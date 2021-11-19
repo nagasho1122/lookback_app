@@ -18,6 +18,10 @@ class SessionsController < ApplicationController
   private
 
   def auth_hash
-    request.env['omniauth.auth']
+    if not Rails.env.test? 
+      request.env['omniauth.auth'] 
+    else 
+      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
+    end
   end
 end
