@@ -306,7 +306,7 @@ p {
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   .home-container{
     padding-left: 0;
   }
@@ -333,7 +333,38 @@ p {
  #home-big-logo{
    width: 60vw;
  }
- 
+ @media screen and (min-width: 600px){
+   @media screen and (max-height: 900px){
+     .home-container{
+       padding-top: 90px;
+     }
+     .big-write-logo {
+      width: 40%;
+      padding-top: 40%;
+     }
+     #home-left{
+       padding-bottom: 0;
+     }
+   }
+ }
+}
+@media screen and (min-height: 1200px){
+  #home-left, #home-right{
+    flex: none;
+    margin: 0 auto;
+  }
+  
+  #home-right{
+    max-width: 50vw;
+    margin-top: 100px;
+  }
+  #home-left{
+   max-width: 80vw;
+   font-size: 4vw;
+   p{
+     line-height: 2.5em;
+   }
+ }
 }
 
 /* --------------------------------
