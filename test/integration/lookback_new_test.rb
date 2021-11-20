@@ -1,34 +1,30 @@
 require "test_helper"
 
-class LookbackEditTest < ActionDispatch::IntegrationTest
+class LookbackNewTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:example1)
-    @lookback = lookbacks(:one)
     Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock(@user)
   end
   
-  test "unsuccessful lookback edit" do
+  test "unsuccessful lookback new" do
     log_in_as(@user)
-    get edit_lookback_path(@lookback)
-    assert_template 'lookbacks/edit'
-    patch lookback_path(@lookback), params: { lookback: { university: "", 
+    get new_lookback_path
+    assert_template 'lookbacks/new'
+    post lookbacks_path, params: { lookback: { university: "", 
                                 faculty: "理工学部", department: "機械工学科", year: 2020,  
                                 all_text: "非常によくできた。特に後半の問題は全問正解。"} }
-    assert_template "lookbacks/edit"
+    assert_template "lookbacks/new"
     assert_not flash.empty?
   end
   
-  test "successful edit" do
+  test "successful new" do
     log_in_as(@user)
-    get edit_lookback_path(@lookback)
-    assert_template 'lookbacks/edit'
-    university = "大阪大学"
-    patch lookback_path(@lookback), params: { lookback: { university: university, 
+    get new_lookback_path
+    assert_template 'lookbacks/new'
+    post lookbacks_path, params: { lookback: { university: "東京大学", 
                                 faculty: "理工学部", department: "機械工学科", year: 2020,  
                                 all_text: "非常によくできた。特に後半の問題は全問正解。"} }
+    assert_redirected_to user_path(@user)
     assert_not flash.empty?
-    assert_redirected_to lookback_path(@lookback)
-    @lookback.reload
-    assert_equal @lookback.university, university
   end
 end

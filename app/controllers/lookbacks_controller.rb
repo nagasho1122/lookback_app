@@ -58,6 +58,7 @@ class LookbacksController < ApplicationController
       flash[:success] = "振り返りを更新しました"
       redirect_to lookback_path(@lookback)
     else
+      flash.now[:danger] = "振り返りの更新に失敗しました"
       render "edit"
     end
   end

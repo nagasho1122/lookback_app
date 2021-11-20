@@ -7,7 +7,7 @@ class LookbacksControllerTest < ActionDispatch::IntegrationTest
     @lookback = @user.lookbacks.create(university: "東京大学", faculty: "理工学部",
                     department: "機械工学科", year: 2020,  
                     all_text: "非常によくできた。特に後半の問題は全問正解。")
-    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock
+    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock(@user)
   end
   
   test "should get show" do

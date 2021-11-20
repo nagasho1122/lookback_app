@@ -6,7 +6,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:example1)
     @review = @user.reviews.create(content: "問題集1冊",
                                   deadline_at: DateTime.now )
-    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock
+    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock(@user)
   end
   
   test "should get index" do

@@ -16,14 +16,14 @@ class ActiveSupport::TestCase
   
   OmniAuth.config.test_mode = true
   
-  def google_oauth2_mock
+  def google_oauth2_mock(user)
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
     :provider => 'google_oauth2',
     :uid => '1235456789',
     :info => {
-      :name => 'JohnDoe',
-      :email => "abc@gmail.com",
-      :image => "/fixtures/test_icon.jpg"}
+      :name => user.name,
+      :email => user.email,
+      :image => user.image}
     })
   end
   

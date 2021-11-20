@@ -4,7 +4,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:example1)
-    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock
+    Rails.application.env_config["omniauth.auth"]  = google_oauth2_mock(@user)
   end
   
   test "valid login" do
