@@ -35,4 +35,12 @@ class ReviewTest < ActiveSupport::TestCase
   test "order should be most late first" do
    assert_equal reviews(:most_late), Review.first
   end
+  
+  test "associated dones should be destroy" do
+    @review.save
+    @review.dones.create!(user_id: @user.id)
+    assert_difference "Done.count", -1 do
+      @review.destroy
+    end
+  end
 end

@@ -15,7 +15,7 @@ class LookbacksController < ApplicationController
       flash[:success] = "振り返りを作成しました"
       redirect_to user_path(current_user)
     else
-      flash[:danger] = "振り返りの作成に失敗しました"
+      flash.now[:danger] = "振り返りの作成に失敗しました"
       render new_lookback_path
     end
     

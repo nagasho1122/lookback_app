@@ -3,6 +3,7 @@ require "test_helper"
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "ボブ子", email: "abc@gmail.com")
+    @review_example = reviews(:one)
   end
   
   test "should be valid" do
@@ -35,6 +36,14 @@ class UserTest < ActiveSupport::TestCase
     @user.reviews.create!(content: "単語帳 2周",  subject_id: subjects(:one).id,
                     deadline_at: Time.zone.now)
     assert_difference "Review.count", -1 do
+      @user.destroy
+    end
+  end
+  
+  test "associated dones should be destroy" do
+    @user.save
+    @user.dones.create!(done_review_id: @review_example.id)
+    assert_difference "Done.count", -1 do
       @user.destroy
     end
   end
