@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only:[:show]
   
   def show
     #ログイン中のユーザー
@@ -23,4 +24,10 @@ class UsersController < ApplicationController
     @reviewsExpire = @user.reviews.where.not(id: @done_review_ids).where("deadline_at < ?", today).limit(4)
     @done = @user.dones.build
   end
+  
+  private
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_url unless @user == current_user
+    end
 end

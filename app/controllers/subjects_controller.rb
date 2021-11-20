@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   end
   
   def destroy
-    Subject.find(params[:id]).destroy!
+    #Subject.find(params[:id]).destroy!
   end
   
   def update

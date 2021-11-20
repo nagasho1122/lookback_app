@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :correct_user, only:[:destroy]
   
   def create
     @review = current_user.reviews.build(review_params)
@@ -66,6 +67,12 @@ class ReviewsController < ApplicationController
     
     def review_params
       params.require(:review).permit(:content, :deadline_at)
+    end
+    
+    def correct_user
+      #findだと存在しないときにエラーになるため、find_byを使用。
+      @review = current_user.reviews.find_by(id: params[:id])
+      redirect_to root_url unless !@review.nil?
     end
   
 end

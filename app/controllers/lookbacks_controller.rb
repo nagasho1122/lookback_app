@@ -1,4 +1,5 @@
 class LookbacksController < ApplicationController
+  before_action :correct_user, only:[:edit, :show, :update, :destroy]
   
   def new
     @num = 0
@@ -69,6 +70,12 @@ class LookbacksController < ApplicationController
                     :all_text, :year, :subjects_attributes => [ :id, :subject, :_destroy, :lookback_details_attributes =>  [:id, :unit,
                     :number, :text, :_destroy], :reviews_attributes => [:id, 
                     :user_id, :content, :deadline_at, :_destroy]])
+    end
+    
+    def correct_user
+      #findだと存在しないときにエラーになるため、find_byを使用。
+      @lookback = current_user.lookbacks.find_by(id: params[:id])
+      redirect_to root_url unless !@lookback.nil?
     end
   
 end
