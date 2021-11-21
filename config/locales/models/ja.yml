@@ -12,14 +12,14 @@ ja:
         year: 年度
         all_text: 全体振り返り
         user_id: ユーザー
-      subject:
+      subjects:
         subject: 科目
         lookback_id: 振り返り
-      lookback_detail:
+      lookback_details:
         number: 大問
         text: 振り返り
         subject_id: 科目
-      review:
+      reviews:
         content: Todo
         deadline_at: 締め切り日
         user_id: ユーザー

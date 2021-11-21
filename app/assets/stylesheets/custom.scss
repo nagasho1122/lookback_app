@@ -1503,6 +1503,8 @@ p {
   width: 266px;
   height: 48px;
   margin: 2px;
+  overflow-wrap: break-word;
+  overflow: auto;
 }
 
 .deadline-box-user{
