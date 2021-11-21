@@ -12,7 +12,8 @@
         <li class="nav-item left-border"><%= link_to "ログアウト", log_out_path, class: "nav-link underbar-action", data: { confirm: "本当にログアウトしますか?"}%></li>
         <li class="nav-item left-border"><%= link_to "振り返りを書く", new_lookback_path ,class: "nav-link underbar-action", data: {"turbolinks" => false} %></li>
       <% else  %>
-        <li><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link" %></li>            
+        <li class="nav-item"><%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post, class: "nav-link underbar-action" %></li> 
+        <li class="nav-item"><%= link_to "お試しログイン", trial_login_path, class: "nav-link underbar-action" %></li>
       <% end %>
     </ul>
   </div>

@@ -9,3 +9,7 @@ example2:
   name: example2
   email: defg.gamil.com
   image: /fixtures/test_icon.jpg
+trial:
+  name: sample
+  email: sample@sample.com
+  image: /fixtures/lookbackicon.png

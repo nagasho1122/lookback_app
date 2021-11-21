@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'log_out', to: 'sessions#destroy', as: 'log_out'
+  get 'trial_login', to: "sessions#triallogin", as: "trial_login"
 
   resources :users, only: [:show]
   resources :sessions, only: %i[create destroy]
