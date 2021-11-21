@@ -15,12 +15,18 @@ ja:
       subjects:
         subject: 科目
         lookback_id: 振り返り
-      lookback_details:
+      subjects/lookback_details:
         number: 大問
         text: 振り返り
+        unit: 単元
         subject_id: 科目
-      reviews:
+      subjects/reviews:
         content: Todo
         deadline_at: 締め切り日
         user_id: ユーザー
         subject_id: 科目
+      reviews:
+          content: Todo
+          deadline_at: 締め切り日
+          user_id: ユーザー
+          subject_id: 科目
