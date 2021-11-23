@@ -1356,6 +1356,8 @@ p {
   width : 500px;
   height : 150px;
   padding-top: 2px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   background : $sub-accents-color;
   left : -480px;
   transition : .3s;

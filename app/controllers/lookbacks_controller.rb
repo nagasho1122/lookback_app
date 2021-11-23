@@ -45,7 +45,7 @@ class LookbacksController < ApplicationController
   end
   
   def index
-    @lookbacks = current_user.lookbacks.all.page(params[:page]).per(10)
+    @lookbacks = current_user.lookbacks.all.page(params[:page]).per(5)
   end
   
   def edit
