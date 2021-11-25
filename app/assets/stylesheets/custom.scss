@@ -249,11 +249,16 @@ p {
    width: 100vw;
    height: 100vh;
    color: white;
-   padding-top: 175px;
+   padding-top: 25vh;
    padding-left: 4vw;
    font-size: 2.75vw;
  }
  
+ @media screen and (min-height: 1200px) {
+   .home-container{
+     padding-top: 15vh;
+   }
+ }
  
  #home-big-logo{
    width: 45vw;
