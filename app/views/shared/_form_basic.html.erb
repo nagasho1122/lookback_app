@@ -1,7 +1,12 @@
 <div class="school-inf-box">
     <div class="group">
-      <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, value: 2021, 
-      class: 'inputMaterial', id: "lookback_year",  :required => true %>
+      <% if edit %>
+        <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, 
+        class: 'inputMaterial', id: "lookback_year",  :required => true %>
+      <% else %>
+        <%= f.number_field :year, min: 1980 , max: 2030, sep: 1, value: 2021, 
+        class: 'inputMaterial', id: "lookback_year",  :required => true %>
+      <% end %>
       <span class="highlight"></span>
       <span class="bar"></span>
       <%= f.label :year, "年度", class: "label" %>

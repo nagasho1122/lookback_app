@@ -5,7 +5,7 @@
     <div class="form-lookback">
       <%= render 'shared/error_messages', object: f.object %>
       
-      <%= render 'shared/form_basic', f: f %>
+      <%= render 'shared/form_basic', f: f, edit: false %>
       
       <div class="subject-inf-box">
         <%= f.fields_for :subjects do |t| %>
