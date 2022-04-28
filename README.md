@@ -17,7 +17,7 @@ https://mocamoca-lookbackapp.herokuapp.com
 * Ruby 2.6.3p62
 * Ruby on Rails 6.1.4.1
 * bootstrap 4.3.1
-* Postgres SQL
+* PostgreSQL
 * Puma
 * jQuery
 * HTML
