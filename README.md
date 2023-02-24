@@ -10,7 +10,7 @@
 
 
 ## URL
-https://mocamoca-lookbackapp.herokuapp.com
+https://mocamoca-lookbackapp.herokuapp.com(2023年2月現在、サービス停止中)
 
 
 ## 使用技術
